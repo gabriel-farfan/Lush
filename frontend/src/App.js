@@ -1,6 +1,8 @@
 import './App.css';
 import Home from './pages/Home';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Footer from './components/Footer/Footer';
+import NavBar from './components/NavBar/NavBar'
 
 const theme = createTheme({
   palette: {
@@ -20,7 +22,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
+      <NavBar />
+
       <Home />
+      
+      <Footer />
     </div>
     </ThemeProvider>
   );

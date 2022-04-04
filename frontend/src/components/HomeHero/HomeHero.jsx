@@ -15,6 +15,7 @@ function HomeHero() {
             <Button className="homeHeroButton" variant="contained" color="secondary">
                 SHOP NOW
             </Button>
+            
         </div>
     </div>
   )

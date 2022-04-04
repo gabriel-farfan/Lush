@@ -1,0 +1,39 @@
+.boxcont{
+    background-color: #083900;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 30vh;
+}
+
+.tittle{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.quicklinks{
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.links{
+    text-decoration: none;
+    color: rgb(227, 227, 227);
+    margin: 8px;
+
+}
+
+.socialbrands{
+    display: flex;
+    align-items: center;
+    /* padding: 6px; */
+    margin: 6px;
+    text-decoration: none;
+    padding: 4px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
