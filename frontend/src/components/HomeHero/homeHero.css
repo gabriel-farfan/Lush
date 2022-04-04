@@ -1,0 +1,61 @@
+.homeHero{
+    background: linear-gradient(160deg, #0000004a 0%, #08250069 100%),  url(../../../public/img/hero.jpg) no-repeat center bottom;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    z-index: -10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeElementsWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
+
+.homeH1Tittle{
+    color: #fff;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.284);
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.homeSpanTittle{
+    color: orange;
+    font-weight: bold;
+}
+
+.homeH2SubTittle{
+    color: #fff;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.284);
+    padding: 16px;
+}
+
+.homeHeroButton{
+    width: 150px;
+}
+
+@media (max-width: 480px) {
+    .homeH1Tittle {
+        font-size: 2.5rem !important;
+        margin-bottom: 5px;
+    }
+    .homeH2SubTittle {
+        font-size: 1.5rem !important;
+    }
+}
