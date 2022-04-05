@@ -1,0 +1,25 @@
+.h2HomeBlog{
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #083900;
+    margin-bottom: 3rem;
+}
+
+.home-blog-box{
+    text-align: left;
+}
+
+.h3HomeBlog{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.pHomeBlog{
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.652);
+    margin-bottom: 2rem;
+    line-height: 25px;
+}

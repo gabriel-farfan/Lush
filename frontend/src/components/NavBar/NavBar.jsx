@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link as LinkRouter } from 'react-router-dom'
+import './navBar.css'
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -39,12 +41,13 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            className="titleNav"
+            variant="h5"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Lush.
+            Lush <span classname="navSpanTittle">.</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -76,11 +79,35 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/" >Home</LinkRouter>
+              </Button>
+                <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/" >Shop</LinkRouter>
+              </Button>
+
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/" >Blog</LinkRouter>
+              </Button>
+
+
             </Menu>
           </Box>
           {/* <Typography
@@ -92,15 +119,30 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block'}}
+              >
+                <LinkRouter className="nav" to="/" >Home</LinkRouter>
+              </Button>
+                
+          
+          <Button
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <LinkRouter className="nav" to="/" >Shop</LinkRouter>
               </Button>
-            ))}
+
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/" >Blog</LinkRouter>
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -125,11 +167,31 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+
+              {/* {props.user ?
+                
+              
+                  descomentar para sign out
+                <button className="signOutBtn" onClick={SignOutUser}>
+                  Sign Out
+                </button>
+
+                : */}
+
+                <div>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  
+                <LinkRouter className="navMob" to="/SignIn" > <Typography textAlign="center">Sign In</Typography> </LinkRouter>
+                  
                 </MenuItem>
-              ))}
+
+                <MenuItem onClick={handleCloseUserMenu}>
+                <LinkRouter className="navMob" to="/SignUp" > <Typography textAlign="center">Sign Up</Typography> </LinkRouter>
+                  
+                </MenuItem>
+                </div>
+                {/* } descomentar para signout */}
             </Menu>
           </Box>
         </Toolbar>
