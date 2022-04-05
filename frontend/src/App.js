@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import Details from './pages/Details';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,8 @@ function App() {
       
 
       <Route path="/" element={<Home/>}/>
+      <Route path="/Details" element={<Details/>}/>
+
       <Route path="/SignIn" element={<SignInPage/>}/>
       <Route path="/SignUp" element={<SignUpPage/>}/>
 
