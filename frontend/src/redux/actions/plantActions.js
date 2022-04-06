@@ -4,7 +4,8 @@ const plantActions = {
   fetchPlants: () => {
     return async (dispatch, getState) => {
       const res = await axios.get('http://localhost:4000/api/plants')
-      dispatch({ type: 'plant/fetch', payload: res.data.response.plants })
+      console.log(res.data)
+      dispatch({ type: 'plant/fetch', payload: res.data.content.plants })
     }
   },
   fetchPlant: (id) => {
@@ -29,7 +30,7 @@ const plantActions = {
       }
     }
   },
-  filter: (value) => {
+  filterPlant: (value) => {
     return (dispatch, getState) => {
       dispatch({ type: 'plants/filter', payload: value })
     }
