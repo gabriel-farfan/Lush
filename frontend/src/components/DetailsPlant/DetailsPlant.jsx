@@ -21,7 +21,7 @@ function DetailsPlant(props) {
         fetchPlants()
       },[])
 
-    
+    console.log(plant)
 
     
   return (

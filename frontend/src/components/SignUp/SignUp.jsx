@@ -11,8 +11,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import './signUp.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import userActions from '../../redux/actions/userActions'
 
-function SignUp() {
+function SignUp(props) {
 
     const handleSubmit = (event) => {
   
@@ -26,7 +28,7 @@ function SignUp() {
           profileurl: event.target[8].value,
           from: 'signup'
         }
-        // props.signUpUser(userData)
+        props.signUpUser(userData)
         console.log("🚀 ~ file: SignUp.jsx ~ line 30 ~ handleSubmit ~ userData", userData)
     
         }
@@ -162,5 +164,17 @@ function SignUp() {
     </div>
   )
 }
+const mapDispatchToProps = {
+  signUpUser: userActions.signUpUser,
+}
+const mapStateToProps = (state) => {
+  return {
+    message: state.userReducer.message,
+    message2: state.userReducer.message2,
+  }
+}
 
-export default SignUp
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+// export default SignUp

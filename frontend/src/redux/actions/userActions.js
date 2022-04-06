@@ -1,30 +1,30 @@
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-const alertsToasts = (icon, message) => {
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
+// const alertsToasts = (icon, message) => {
+//     const Toast = Swal.mixin({
+//         toast: true,
+//         position: 'top-end',
+//         showConfirmButton: false,
+//         timer: 3000,
+//         timerProgressBar: true,
+//         didOpen: (toast) => {
+//           toast.addEventListener('mouseenter', Swal.stopTimer)
+//           toast.addEventListener('mouseleave', Swal.resumeTimer)
+//         }
+//       })
       
-      Toast.fire({
-        icon: `${icon}`,
-        title: `${message}`
-      })
-}
+//       Toast.fire({
+//         icon: `${icon}`,
+//         title: `${message}`
+//       })
+// }
 
 const userActions = {
 
     signUpUser: (userData) => {
         return async (dispatch, getState) => {
-            const res = await axios.post('https://mytineraryrob.herokuapp.com/api/auth/signUp', { userData })
+            const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
             
             
             dispatch({type: 'message', 
@@ -36,7 +36,7 @@ const userActions = {
     },
     signInUser: (loggedUser) => {
         return async (dispatch, getState) => {
-            const user = await axios.post('https://mytineraryrob.herokuapp.com/api/auth/signIn', { loggedUser })
+            const user = await axios.post('http://localhost:4000/api/auth/signin', { loggedUser })
             if(user.data.success) {
                 localStorage.setItem('token', user.data.response.token)
                 dispatch({type: 'user', payload: user.data.response.userData});
@@ -50,18 +50,18 @@ const userActions = {
                     }
                 })
 
-                alertsToasts('success', user.data.message)
+                // alertsToasts('success', user.data.message)
 
             }else{
                 console.log(user.data.message)
                 
-                alertsToasts('error', user.data.message)
+                // alertsToasts('error', user.data.message)
             }
         }
     },
     SignOutUser: (closeuser) => {
         return async (dispatch, getState) => {
-            const user = await axios.post('https://mytineraryrob.herokuapp.com/api/auth/signOut', { closeuser })
+            const user = await axios.post('http://localhost:4000/api/auth/signout', { closeuser })
             localStorage.removeItem('token')
             dispatch({type: 'user', payload: null});
             dispatch({

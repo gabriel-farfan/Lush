@@ -72,6 +72,7 @@ const userController = {
     },
     signUp: async (req, res) => {
         const { firstName, lastName, email, password, country, from } = req.body;
+        console.log(req.body)
         try {
             const user = await User.findOne({ email });
             const passwordHash = bcryptjs.hashSync(password, 10);
