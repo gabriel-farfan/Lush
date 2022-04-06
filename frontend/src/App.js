@@ -8,8 +8,10 @@ import NavBar from './components/NavBar/NavBar'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import Details from './pages/Details';
+import Shop from './pages/Shop'
 import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions'
+
 
 const theme = createTheme({
   palette: {
@@ -45,6 +47,7 @@ function App(props) {
 
       <Route path="/" element={<Home/>}/>
       <Route path="/Details/:id" element={<Details/>}/>
+      <Route path="/Shop" element={<Shop/>}/>
 
       <Route path="/SignIn" element={<SignInPage/>}/>
       <Route path="/SignUp" element={<SignUpPage/>}/>
