@@ -35,6 +35,7 @@
 
 .imgDetails{
     width: 600px;
+    object-fit: contain;
 }
 
 .black{

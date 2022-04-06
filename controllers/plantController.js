@@ -15,6 +15,7 @@ const plantController = {
     },
     fetchPlant: async (req, res) => {
         const id = req.params.id;
+        
         let plant, error = null;
         try {
             plant = await Plant.findOne({ _id: id });

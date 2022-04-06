@@ -4,16 +4,17 @@ const plantActions = {
   fetchPlants: () => {
     return async (dispatch, getState) => {
       const res = await axios.get('http://localhost:4000/api/plants')
-      console.log(res.data)
+      // console.log(res.data)
       dispatch({ type: 'plant/fetch', payload: res.data.content.plants })
     }
   },
   fetchPlant: (id) => {
+    
     return async (dispatch, getState) => {
       const res = await axios.get('http://localhost:4000/api/plants/' + id);
       
       try{
-        dispatch({type: 'plant/fetchOne', payload: res.data.response })
+        dispatch({type: 'plant/fetchOne', payload: res.data.content.plant })
       }catch (err) {
         console.log(err)
       }

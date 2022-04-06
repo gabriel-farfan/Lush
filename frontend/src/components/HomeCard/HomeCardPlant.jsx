@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import './homeCardPlant.css'
 import Button from '@mui/material/Button';
-import plants from '../plantsdata.js'
 import plantActions from '../../redux/actions/plantActions'
 import {connect} from 'react-redux';
+import {Link as LinkRouter} from "react-router-dom"
 
 function HomeCardPlant(props) {
 console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", props)
@@ -29,7 +29,7 @@ console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", p
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                    DETAILS
+                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
             </div>
         </div>
@@ -38,5 +38,4 @@ console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", p
   )
 }
 
-// export default HomeCardPlant
 export default connect(state => state.plantReducer, plantActions)(HomeCardPlant)
