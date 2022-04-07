@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import plantActions from '../../redux/actions/plantActions'
 import {connect} from 'react-redux';
 import {Link as LinkRouter} from "react-router-dom"
+import './shop.css'
+import Button from '@mui/material/Button';
+
 
 function ShopComponent(props) {
 
@@ -61,8 +64,76 @@ function ShopComponent(props) {
       console.log(dataClassByRoomLivingroom)
 
   return (
-    <div>
+    <div className="wrapperShop">
       
+      <h3 className="h3Shop">Medium Size Plants</h3>
+      <div className="wrapperMediumSize">
+      {dataClassSizeMedium.map((item) => {
+        return (
+      <div className="cardWrapper">
+            <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
+            <div className="cardTextContent">
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
+                <Button variant="text">
+                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                </Button>
+            </div>
+            </div>
+        )})}
+        </div>
+
+        <h3 className="h3Shop">Small Plants</h3>
+      <div className="wrapperMediumSize">
+      {dataClassSizeSmall.map((item) => {
+        return (
+      <div className="cardWrapper">
+            <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
+            <div className="cardTextContent">
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
+                <Button variant="text">
+                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                </Button>
+            </div>
+            </div>
+        )})}
+        </div>
+
+        <h3 className="h3Shop">Large Plants</h3>
+      <div className="wrapperMediumSize">
+      {dataClassSizeLarge.map((item) => {
+        return (
+      <div className="cardWrapper">
+            <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
+            <div className="cardTextContent">
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
+                <Button variant="text">
+                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                </Button>
+            </div>
+            </div>
+        )})}
+        </div>
+
+        <h3 className="h3Shop">If you are a serial plant killer, select one here..</h3>
+      <div className="wrapperMediumSize">
+      {dataClassLowCare.map((item) => {
+        return (
+      <div className="cardWrapper">
+            <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
+            <div className="cardTextContent">
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
+                <Button variant="text">
+                <LinkRouter  to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                </Button>
+            </div>
+            </div>
+        )})}
+        </div>
+
     </div>
   )
 }
