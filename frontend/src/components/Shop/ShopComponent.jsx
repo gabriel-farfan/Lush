@@ -18,15 +18,41 @@ function ShopComponent(props) {
 
       
 
-      const dataFilter = data.filter(item => item.size === "medium")
-      console.log(dataFilter)
+      const dataClassSizeMedium = data.filter(item => item.size === "medium")
+      console.log(dataClassSizeMedium)
 
-      const dataFilter2 = data.filter(item => item.room === "office")
-      console.log(dataFilter2)
+      const dataClassSizeSmall = data.filter(item => item.size === "small")
+      console.log(dataClassSizeSmall)
 
-    
+      const dataClassSizeLarge = data.filter(item => item.size === "large")
+      console.log(dataClassSizeLarge)
 
+      const dataClassLowCare = data.filter(item => item.care === "Low Care")
+      console.log(dataClassLowCare)
 
+      const dataClassMediumCare = data.filter(item => item.care === "Medium Care")
+      console.log(dataClassMediumCare)
+
+      const dataClassHighCare = data.filter(item => item.care === "High Care")
+      console.log(dataClassHighCare)
+
+      const dataClassLowLight = data.filter(item => item.light === "Low light")
+      console.log(dataClassLowLight)
+
+      const dataClassMediumLight = data.filter(item => item.light === "Medium light")
+      console.log(dataClassMediumLight)
+
+      const dataClassBrightLight = data.filter(item => item.light === "Bright light")
+      console.log(dataClassBrightLight)
+
+      const dataClassByRoomBathroom = data.filter(item => item.room === "bathroom")
+      console.log(dataClassByRoomBathroom)
+
+      const dataClassByRoomGarden = data.filter(item => item.room === "garden")
+      console.log(dataClassByRoomGarden)
+
+      const dataClassByRoomBedroom = data.filter(item => item.room === "bedroom")
+      console.log(dataClassByRoomBedroom)
 
       
 
