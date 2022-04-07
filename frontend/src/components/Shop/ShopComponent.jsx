@@ -54,7 +54,11 @@ function ShopComponent(props) {
       const dataClassByRoomBedroom = data.filter(item => item.room === "bedroom")
       console.log(dataClassByRoomBedroom)
 
-      
+      const dataClassByRoomKitchen = data.filter(item => item.room === "kitchen")
+      console.log(dataClassByRoomKitchen)
+
+      const dataClassByRoomLivingroom = data.filter(item => item.room === "living room")
+      console.log(dataClassByRoomLivingroom)
 
   return (
     <div>
