@@ -177,7 +177,7 @@ const userController = {
                         res.json({
                             success: false,
                             from,
-                            message: 'It looks like you never signed up with  ' + from + 'before. You need to comsi quieres ingresar con este metodo debes hacer el signUp con ' + from
+                            message: 'It looks like you never signed up with  ' + from + 'before. Please  Sign Up with ' + from
                         });
                     }
                 } else {

@@ -19,3 +19,11 @@
     color: orange;
     font-weight: bold;
 }
+
+.signOutBtn{
+    background-color: white;
+    color: #083900;
+    border: none;
+    margin: 8px;
+    font-weight: bold;
+}
