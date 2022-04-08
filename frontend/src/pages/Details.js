@@ -13,11 +13,7 @@ function Details() {
     <div>
         <DetailsHero/>
         <DetailsPlant/>
-<<<<<<< HEAD
-        
-=======
         <ShoppingCart/>
->>>>>>> d63e66b84316429872aae45986064a7af031f8c8
     </div>
   )
 }
