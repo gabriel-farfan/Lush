@@ -23,6 +23,9 @@ function DetailsPlant(props) {
 
     console.log(plant)
 
+
+    
+
     
   return (
 
