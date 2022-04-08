@@ -11,30 +11,25 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import './signIn.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import userActions from '../../redux/actions/userActions'
 
 
-export default function SignInSide() {
+function SignInSide(props) {
 
 
-    const handleSubmit = (event) => {
-    
-  
-        event.preventDefault();
-        const loggedUser = {
-          email: event.target[0].value,
-          
-          password: event.target[2].value,
-          
-          from: "signup"
-        }
-        // props.signInUser(loggedUser);
-        
-      };
-      
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const loggedUser = {
+      email: event.target[0].value,
+      password: event.target[2].value,
+      from: "signup"
+    }
+    props.signInUser(loggedUser);
+  };
 
   return (
-        <div className="signInWrapper">
+    <div className="signInWrapper">
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -88,7 +83,7 @@ export default function SignInSide() {
                 id="password"
                 autoComplete="current-password"
               />
-              
+
               <Button
                 type="submit"
                 fullWidth
@@ -98,9 +93,9 @@ export default function SignInSide() {
                 Sign In
               </Button>
               <Grid container>
-                
+
                 <Grid item>
-                <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
+                  <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
                   {/* <Link href="#" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link> */}
@@ -110,6 +105,16 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
-      </div>
+    </div>
   );
 }
+const mapDispatchToProps = {
+  signInUser: userActions.signInUser,
+}
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+    message: state.userReducer.message
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SignInSide);
