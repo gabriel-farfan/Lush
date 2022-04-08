@@ -11,7 +11,8 @@ function HomeHero() {
             </h1>
             <h2 className="homeH2SubTittle">
             Satisfying the human need to be connected to nature.
-            </h2> 
+            </h2>
+            
             <Button className="homeHeroButton" variant="contained" color="secondary">
                 SHOP NOW
             </Button>

@@ -1,0 +1,29 @@
+.nav{
+    color: white;
+    text-decoration: none;
+}
+
+.navMob{
+    color: #083900;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.titleNav{
+    color:white;
+    font-weight: bold;    
+}
+
+.navSpanTittle{
+    color: orange;
+    font-weight: bold;
+}
+
+.signOutBtn{
+    background-color: white;
+    color: #083900;
+    border: none;
+    margin: 8px;
+    font-weight: bold;
+}

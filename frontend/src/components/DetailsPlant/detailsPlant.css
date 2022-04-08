@@ -1,0 +1,42 @@
+.detailsWrapper{
+    width: 85%;
+    margin: auto;
+    margin-bottom: 100px;
+    margin-top: -100px;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.h2Detail{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #083900;
+    margin: 3rem;
+}
+
+.details-box{
+    text-align: left;
+}
+
+.h3Details{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.pDetails{
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.652);
+    margin-bottom: 2rem;
+    line-height: 25px;
+}
+
+.imgDetails{
+    width: 600px;
+}
+
+.black{
+    font-weight: bold;
+}

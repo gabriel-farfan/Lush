@@ -11,11 +11,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link as LinkRouter } from 'react-router-dom'
+import './navBar.css'
+import userActions from '../../redux/actions/userActions'
+import { connect } from 'react-redux'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
+
+
+  function SignOutUser(){
+    props.SignOutUser(props.user.email)
+  }
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,12 +50,13 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            className="titleNav"
+            variant="h5"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Lush.
+            Lush <span className="navSpanTittle">.</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -76,11 +88,35 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/" >Home</LinkRouter>
+              </Button>
+                <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/Shop" >Shop</LinkRouter>
+              </Button>
+
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="navMob" to="/" >Blog</LinkRouter>
+              </Button>
+
+
             </Menu>
           </Box>
           {/* <Typography
@@ -92,15 +128,43 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block'}}
+              >
+                <LinkRouter className="nav" to="/" >Home</LinkRouter>
+              </Button>
+                
+          
+          <Button
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <LinkRouter className="nav" to="/Shop" >Shop</LinkRouter>
               </Button>
-            ))}
+
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/" >Blog</LinkRouter>
+              </Button>
+
+              {props.user && 
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/cart" >
+                  <ShoppingCartIcon />
+                  </LinkRouter>
+              </Button>
+  }
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -125,11 +189,31 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+
+              {props.user ?
+                
+              
+                  
+                <button className="signOutBtn" onClick={SignOutUser}>
+                  Sign Out
+                </button>
+
+                :
+
+                <div>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  
+                <LinkRouter className="navMob" to="/SignIn" > <Typography textAlign="center">Sign In</Typography> </LinkRouter>
+                  
                 </MenuItem>
-              ))}
+
+                <MenuItem onClick={handleCloseUserMenu}>
+                <LinkRouter className="navMob" to="/SignUp" > <Typography textAlign="center">Sign Up</Typography> </LinkRouter>
+                  
+                </MenuItem>
+                </div>
+              }
             </Menu>
           </Box>
         </Toolbar>
@@ -137,4 +221,17 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducer.user,
+  }
+}
+
+const mapDispatchToProps = {
+  signInUser: userActions.signInUser,
+  SignOutUser: userActions.SignOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsiveAppBar);
+// export default ResponsiveAppBar;

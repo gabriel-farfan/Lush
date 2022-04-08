@@ -1,89 +1,45 @@
 const Router = require('express').Router();
+const passport = require('../config/passport');
 
-const ciudadesController = require('../controllers/ciudadesController')
-const itinerariesController = require('../controllers/itinerariesController')
-const userController = require('../controllers/userControllers')
-// const activityControllers = require('../controllers/activityControllers')
-const commentsControllers = require('../controllers/commentsControllers')
+const plantController = require('../controllers/plantController');
+const userController = require('../controllers/userController');
+const validator = require('../config/validator');
 
-const validator = require('../config/validator')
-const passport = require('../config/passport')
+const {
+    fetchPlants,
+    fetchPlant,
+    savePlant,
+    editPlant,
+    deletePlant,
+} = plantController;
 
-const {obtenerCiudades, cargarCiudad, modificarCiudad, borrarCiudad, obtenerUnaCiudad} = ciudadesController
+Router.route('/plants/:id')
+    .get(fetchPlant)
+    .put(passport.authenticate('jwt', { session: false }), editPlant)
+    .delete(passport.authenticate('jwt', { session: false }), deletePlant);
 
-Router.route('/allcities')
-.get(obtenerCiudades)
-.post(cargarCiudad)
+Router.route('/plants')
+    .get(fetchPlants)
+    .post(passport.authenticate('jwt', { session: false }), savePlant);
 
-Router.route('/allcities/:id')
-.delete(borrarCiudad)
-.put(modificarCiudad)
-.get(obtenerUnaCiudad)
-
-
-
-const {obtenerItineraries, cargaItinerary, borrarItinerary, modificarItinerary,obtenerUnItinerary, obtenerItinerarioPorCiudad, likesAndDislike} = itinerariesController
-
-Router.route('/allitineraries')
-.get(obtenerItineraries)
-.post(cargaItinerary)
-
-Router.route('/allitineraries/:id')
-.delete(borrarItinerary)
-.put(modificarItinerary)
-.get(obtenerUnItinerary)
-
-Router.route('/allitineraries/city/:id')
-.get(obtenerItinerarioPorCiudad)
-
-Router.route('/likesAndDislike')
-.put 
-(
-    // passport.authenticate('jwt',{ session:false }), 
-likesAndDislike)
-
-const { signUpUsers, signInUser, signOutUser, verifyEmail, verifyToken} = userController;
-
-Router.route("/auth/signUp")
-.post(validator, signUpUsers);
-
-Router.route("/auth/signIn")
-.post(signInUser);
-
-Router.route("/auth/signOut")
-.post(signOutUser)
-
-Router.route('/verify/:uniqueString')
-.get(verifyEmail)
-
-Router.route('/auth/signInToken')
-.get(
-    // passport.authenticate('jwt',{ session:false }), 
-    verifyToken)
+const {
+    signUp,
+    signIn,
+    signOut,
+    verifyEmail,
+    verifyToken
+} = userController;
 
 
+Router.route('/auth/signup').post(validator, signUp);
 
-// const { addActivity, activityForEachItinerary} = activityControllers
+Router.route('/auth/signin')
+    .get(passport.authenticate('jwt', { session: false }), verifyToken)
+    .post(signIn);
 
-// Router.route("/activities")
-// .post(addActivity)
+Router.route('/auth/signout')
+    .post(passport.authenticate('jwt', { session: false }), signOut);
 
-// Router.route('/activities/:itineraryId')
-// .get(activityForEachItinerary)
+Router.route('/verify/:uniqueString').get(verifyEmail);
 
-const {addComment, getCommentByItinerary, deleteComment, modifyComment} = commentsControllers
-Router.route("/comments/:itineraryId")
-.post(
-    // passport.authenticate('jwt',{session:false}), 
-    addComment)
-.get(getCommentByItinerary)
-.put(
-    // passport.authenticate('jwt',{session:false}),
-    modifyComment)
-
-Router.route("/comments/:itineraryId/:commentId")
-.delete(
-    // passport.authenticate('jwt',{session:false}), 
-    deleteComment)
-
-module.exports = Router
+module.exports = Router;

@@ -1,0 +1,25 @@
+.wrapperShop{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: -70px;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+}
+
+.h3Shop{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.wrapperMediumSize{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+

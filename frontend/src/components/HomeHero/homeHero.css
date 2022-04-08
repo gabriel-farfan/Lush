@@ -50,6 +50,15 @@
     width: 150px;
 }
 
+.try{
+    position: absolute;
+    width: 600px;
+    z-index: 0;
+    left: 0;
+    top: 200px;
+    transform: rotate(99deg);
+}
+
 @media (max-width: 480px) {
     .homeH1Tittle {
         font-size: 2.5rem !important;
