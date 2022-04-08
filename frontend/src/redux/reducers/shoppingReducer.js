@@ -12,7 +12,7 @@ export const shoppingInitialState = {
   cart: [],
 };
 
-export function shoppingReducer(state, action) {
+function shoppingReducer(state, action) {
   switch (action.type) {
     case TYPES.ADD_TO_CART: {
       let newItem = state.products.find(
@@ -65,3 +65,5 @@ export function shoppingReducer(state, action) {
       return state;
   }
 }
+
+export default shoppingReducer;
