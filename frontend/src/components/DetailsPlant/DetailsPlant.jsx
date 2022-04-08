@@ -7,6 +7,9 @@ import { Button } from '@mui/material';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import plantActions from '../../redux/actions/plantActions.js'
+import ProductItem from '../ProductItem.js/ProductItem';
+import { shoppingInitialState, shoppingReducer } from "../../redux/reducers/shoppingReducer";
+import {useReducer} from "react"
 
 function DetailsPlant(props) {
 
@@ -68,6 +71,7 @@ function DetailsPlant(props) {
                         backgroundPosition: 'center',
                         }}
                         /> */}
+                        <ProductItem/>
                     <Grid item xs={12} sm={6} md={6}>
                         <img className="imgDetails" src={process.env.PUBLIC_URL+ `/img/plants/${plant.images}`} alt="plant" />
                     </Grid>
