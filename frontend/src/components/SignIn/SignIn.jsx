@@ -114,7 +114,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
-    message: state.userReducer.message
+    message: state.userReducer.message,
+    message2: state.userReducer.message2,
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SignInSide);

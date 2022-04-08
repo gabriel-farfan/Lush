@@ -49,8 +49,8 @@ function App(props) {
       <Route path="/Details/:id" element={<Details/>}/>
       <Route path="/Shop" element={<Shop/>}/>
 
-      <Route path="/SignIn" element={<SignInPage/>}/>
-      <Route path="/SignUp" element={<SignUpPage/>}/>
+      {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
+      {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}
 
       <Route path="*" element={<Home/>}/>
       </Routes>

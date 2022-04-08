@@ -13,11 +13,19 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link as LinkRouter } from 'react-router-dom'
 import './navBar.css'
+import userActions from '../../redux/actions/userActions'
+import { connect } from 'react-redux'
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
+
+
+  function SignOutUser(){
+    props.SignOutUser(props.user.email)
+  }
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -96,7 +104,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="navMob" to="/" >Shop</LinkRouter>
+                <LinkRouter className="navMob" to="/Shop" >Shop</LinkRouter>
               </Button>
 
               <Button
@@ -133,7 +141,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/" >Shop</LinkRouter>
+                <LinkRouter className="nav" to="/Shop" >Shop</LinkRouter>
               </Button>
 
               <Button
@@ -169,15 +177,15 @@ const ResponsiveAppBar = () => {
             >
               
 
-              {/* {props.user ?
+              {props.user ?
                 
               
-                  descomentar para sign out
+                  
                 <button className="signOutBtn" onClick={SignOutUser}>
                   Sign Out
                 </button>
 
-                : */}
+                :
 
                 <div>
                 <MenuItem onClick={handleCloseUserMenu}>
@@ -191,7 +199,7 @@ const ResponsiveAppBar = () => {
                   
                 </MenuItem>
                 </div>
-                {/* } descomentar para signout */}
+              }
             </Menu>
           </Box>
         </Toolbar>
@@ -199,4 +207,17 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducer.user,
+  }
+}
+
+const mapDispatchToProps = {
+  signInUser: userActions.signInUser,
+  SignOutUser: userActions.SignOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsiveAppBar);
+// export default ResponsiveAppBar;
