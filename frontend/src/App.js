@@ -9,6 +9,7 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import Details from './pages/Details';
 import Shop from './pages/Shop'
+import Cart from './pages/Cart'
 import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions'
 
@@ -48,6 +49,7 @@ function App(props) {
       <Route path="/" element={<Home/>}/>
       <Route path="/Details/:id" element={<Details/>}/>
       <Route path="/Shop" element={<Shop/>}/>
+      <Route path="/Cart" element={<Cart/>}/>
 
       {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
       {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}

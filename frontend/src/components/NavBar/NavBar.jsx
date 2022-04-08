@@ -15,6 +15,7 @@ import { Link as LinkRouter } from 'react-router-dom'
 import './navBar.css'
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -151,6 +152,19 @@ const ResponsiveAppBar = (props) => {
               >
                 <LinkRouter className="nav" to="/" >Blog</LinkRouter>
               </Button>
+
+              {props.user && 
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/cart" >
+                  <ShoppingCartIcon />
+                  </LinkRouter>
+              </Button>
+  }
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
