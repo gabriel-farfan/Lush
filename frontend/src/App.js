@@ -9,10 +9,9 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import Details from './pages/Details';
 import Shop from './pages/Shop'
-import Cart from './pages/ShoppingCart'
+import Cart from './pages/Cart'
 import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions'
-
 
 
 const theme = createTheme({

@@ -159,6 +159,13 @@ const ResponsiveAppBar = (props) => {
               >
                 <LinkRouter className="nav" to="/" >Blog</LinkRouter>
               </Button>
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/Cart" >Cart</LinkRouter>
+              </Button>
 
               {props.user && 
               <Button
@@ -166,7 +173,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/cart" >
+                <LinkRouter className="nav" to="/cart" > Cart
                   <ShoppingCartIcon />
                   </LinkRouter>
               </Button>
