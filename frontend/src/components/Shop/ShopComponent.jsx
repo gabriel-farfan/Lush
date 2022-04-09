@@ -63,6 +63,9 @@ function ShopComponent(props) {
       const dataClassByRoomLivingroom = data.filter(item => item.room === "living room")
       console.log(dataClassByRoomLivingroom)
 
+      
+
+
   return (
     <div className="wrapperShop">
       

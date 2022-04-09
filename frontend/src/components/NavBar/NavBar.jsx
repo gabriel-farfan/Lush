@@ -24,7 +24,7 @@ const ResponsiveAppBar = (props) => {
 
 
   function SignOutUser(){
-    props.SignOutUser(props.user.email)
+    props.SignOutUser()
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -195,7 +195,7 @@ const ResponsiveAppBar = (props) => {
                 
               
                   
-                <button className="signOutBtn" onClick={SignOutUser}>
+                <button className="signOutBtn" onClick={SignOutUser()}>
                   Sign Out
                 </button>
 
