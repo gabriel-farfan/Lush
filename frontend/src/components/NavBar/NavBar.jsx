@@ -153,7 +153,7 @@ const ResponsiveAppBar = (props) => {
                 <LinkRouter className="nav" to="/" >Blog</LinkRouter>
               </Button>
 
-              {props.user && 
+              
               <Button
                 
                 onClick={handleCloseNavMenu}
@@ -163,7 +163,7 @@ const ResponsiveAppBar = (props) => {
                   <ShoppingCartIcon />
                   </LinkRouter>
               </Button>
-  }
+  
 
           </Box>
 
@@ -195,7 +195,7 @@ const ResponsiveAppBar = (props) => {
                 
               
                   
-                <button className="signOutBtn" onClick={SignOutUser()}>
+                <button className="signOutBtn" onClick={()=>SignOutUser()}>
                   Sign Out
                 </button>
 

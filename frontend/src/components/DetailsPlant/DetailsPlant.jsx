@@ -7,12 +7,13 @@ import { Button } from '@mui/material';
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import plantActions from '../../redux/actions/plantActions.js'
+import cartActions from '../../redux/actions/cartActions.js'
 
 function DetailsPlant(props) {
 
     const {id} = useParams()
     
-    const { fetchPlant, fetchPlants } = props
+    const { fetchPlant, fetchPlants, addToCart } = props
     const { plant } = props
 
     useEffect(()=> { 
@@ -21,7 +22,7 @@ function DetailsPlant(props) {
         fetchPlants()
       },[])
 
-    console.log(plant)
+
 
 
     
@@ -41,7 +42,7 @@ function DetailsPlant(props) {
 
                             <p className="pDetails">Price: {plant.price}</p>
 
-                            <p className="pDetails"> <span class="black"> Care: </span> <br/>Light: {plant.light}<br/> Water: {plant.waterRatio} </p>
+                            <p className="pDetails"> <span className="black"> Care: </span> <br/>Light: {plant.light}<br/> Water: {plant.waterRatio} </p>
 
                             <p className="pDetails">Sad Signs: {plant.sadSigns}</p>
 
@@ -53,7 +54,7 @@ function DetailsPlant(props) {
 
 
 
-                            <Button variant="outlined">BUY NOW</Button>
+                            <Button onClick={() => addToCart(plant)} variant="outlined">ADD TO CART</Button>
                         </Box>
                     </Grid>
                     {/*     <Grid
@@ -96,9 +97,7 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = {
     fetchPlants: plantActions.fetchPlants,
     fetchPlant: plantActions.fetchPlant,
-    
+    addToCart: cartActions.addToCart
   }
   
   export default connect(mapStateToProps,mapDispatchToProps)(DetailsPlant)
-
-// export default DetailsPlant

@@ -22,46 +22,46 @@ function ShopComponent(props) {
       
 
       const dataClassSizeMedium = data.filter(item => item.size === "medium")
-      console.log(dataClassSizeMedium)
+      // console.log(dataClassSizeMedium)
 
       const dataClassSizeSmall = data.filter(item => item.size === "small")
-      console.log(dataClassSizeSmall)
+      // console.log(dataClassSizeSmall)
 
       const dataClassSizeLarge = data.filter(item => item.size === "large")
-      console.log(dataClassSizeLarge)
+      // console.log(dataClassSizeLarge)
 
       const dataClassLowCare = data.filter(item => item.care === "Low Care")
-      console.log(dataClassLowCare)
+      // console.log(dataClassLowCare)
 
       const dataClassMediumCare = data.filter(item => item.care === "Medium Care")
-      console.log(dataClassMediumCare)
+      // console.log(dataClassMediumCare)
 
       const dataClassHighCare = data.filter(item => item.care === "High Care")
-      console.log(dataClassHighCare)
+      // console.log(dataClassHighCare)
 
       const dataClassLowLight = data.filter(item => item.light === "Low light")
-      console.log(dataClassLowLight)
+      // console.log(dataClassLowLight)
 
       const dataClassMediumLight = data.filter(item => item.light === "Medium light")
-      console.log(dataClassMediumLight)
+      // console.log(dataClassMediumLight)
 
       const dataClassBrightLight = data.filter(item => item.light === "Bright light")
-      console.log(dataClassBrightLight)
+      // console.log(dataClassBrightLight)
 
       const dataClassByRoomBathroom = data.filter(item => item.room === "bathroom")
-      console.log(dataClassByRoomBathroom)
+      // console.log(dataClassByRoomBathroom)
 
       const dataClassByRoomGarden = data.filter(item => item.room === "garden")
-      console.log(dataClassByRoomGarden)
+      // console.log(dataClassByRoomGarden)
 
       const dataClassByRoomBedroom = data.filter(item => item.room === "bedroom")
-      console.log(dataClassByRoomBedroom)
+      // console.log(dataClassByRoomBedroom)
 
       const dataClassByRoomKitchen = data.filter(item => item.room === "kitchen")
-      console.log(dataClassByRoomKitchen)
+      // console.log(dataClassByRoomKitchen)
 
       const dataClassByRoomLivingroom = data.filter(item => item.room === "living room")
-      console.log(dataClassByRoomLivingroom)
+      // console.log(dataClassByRoomLivingroom)
 
       
 
@@ -79,7 +79,7 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
             </div>
             </div>
@@ -96,7 +96,7 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
             </div>
             </div>
@@ -113,7 +113,7 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
             </div>
             </div>
@@ -130,7 +130,7 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter  to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter  to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
             </div>
             </div>
