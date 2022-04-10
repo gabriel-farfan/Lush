@@ -4,6 +4,7 @@ import cartActions from '../../redux/actions/cartActions.js'
 import './cartComponent.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import { Link as LinkRouter } from 'react-router-dom'
 
 function CartComponent() {
 
@@ -27,22 +28,26 @@ function CartComponent() {
             <thead>
               <tr>
                 <th> </th>
-                <th>Product</th>
+                <th className="thWidth">Product</th>
                 <th className="tableWidth">Price</th>
                 <th>Quantity</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr className="trFlex">
                   <td><img className="plantImage" src={process.env.PUBLIC_URL+ `/img/plants/${product.plant.images}`} alt="{product.plant.name}" /></td>
                   <td>{product.plant.name}</td>
                   <td> <p className="pCheckout">$</p> {product.plant.price}</td>
-                  <td>{product.qty}</td>
+                  
                   <td>
-                    </td>
-                    <td> 
-                    <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, false))}> - </Button> 
+                  <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, false))}> - </Button> 
+                  
+                    {product.qty}
+                  
                     <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, true))}> + </Button> 
+                  </td>
+                    <td> 
+                    
                     <Button variant="text" onClick={() => dispatch(cartActions.removeFromCart(product.plant._id))}>
                     <DeleteIcon />
                     </Button>
@@ -57,14 +62,23 @@ function CartComponent() {
           )
         })}
         
-            <div>
+            <div className="cartButtons">
             <Button color="error" onClick={() => dispatch(cartActions.clearCart())}>
                     Clear Cart
-                    </Button>
+            </Button>
+              
+            <Button
+                variant="contained"
+                color="primary"
+              >
+                <LinkRouter className="cartComponentBtn" to="/Shop" >Keep Shopping</LinkRouter>
+              </Button>
+
+            </div>
               <p>
                 Total: {total}
               </p>
-            </div>
+            
       
       </div>
   )
