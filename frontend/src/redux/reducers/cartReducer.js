@@ -39,12 +39,31 @@ const cartReducer = (state = initialState, action) => {
                 cart: state.cart.filter(item => item.plant._id !==
                 action.payload.id)
             }
+        case 'cart/updateCart':
+            const cartAux2 = [...state.cart]
+            const index = cartAux2.findIndex(item => item.plant._id === action.payload.id)
+            cartAux2[index].qty = action.payload.bool ? cartAux2[index].qty + 1 : cartAux2[index].qty - 1
+            localStorage.setItem('cart', JSON.stringify(cartAux2))
+            return {
+                ...state,
+                cart: cartAux2,
+                total: TotalPrice(cartAux2),
+                totalQty: TotalQty(cartAux2)
+            }
+        
         case 'cart/checkLocalStorage':
             return {
                 ...state,
                 cart: action.payload,
                 total: TotalPrice(action.payload),
                 totalQty: TotalQty(action.payload)
+            }
+        case 'cart/clearCart':
+            return {
+                ...state,
+                cart: [],
+                total: 0,
+                totalQty: 0
             }
         
         default:

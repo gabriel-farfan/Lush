@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions.js'
 import './cartComponent.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 
 function CartComponent() {
 
@@ -38,9 +39,14 @@ function CartComponent() {
                   <td> <p className="pCheckout">$</p> {product.plant.price}</td>
                   <td>{product.qty}</td>
                   <td>
-                    <button onClick={() => dispatch(cartActions.removeFromCart(product.plant._id))}>
+                    </td>
+                    <td> 
+                    <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, false))}> - </Button> 
+                    <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, true))}> + </Button> 
+                    <Button variant="text" onClick={() => dispatch(cartActions.removeFromCart(product.plant._id))}>
                     <DeleteIcon />
-                    </button>
+                    </Button>
+
                     </td>
                 </tr>
             </tbody>
@@ -52,6 +58,9 @@ function CartComponent() {
         })}
         
             <div>
+            <Button color="error" onClick={() => dispatch(cartActions.clearCart())}>
+                    Clear Cart
+                    </Button>
               <p>
                 Total: {total}
               </p>
