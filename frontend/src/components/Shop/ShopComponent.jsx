@@ -4,13 +4,14 @@ import {connect} from 'react-redux';
 import {Link as LinkRouter} from "react-router-dom"
 import './shop.css'
 import Button from '@mui/material/Button';
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import cartActions from '../../redux/actions/cartActions.js'
 
 function ShopComponent(props) {
 
     const {allPlants:data , plants, loaded, } = props
     
-    const {fetchPlants} = props
+    const {fetchPlants, addToCart} = props
 
     useEffect(()=> { 
 
@@ -79,8 +80,9 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
+                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
             </div>
             </div>
         )})}
@@ -96,8 +98,9 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
+                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
             </div>
             </div>
         )})}
@@ -113,8 +116,9 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter to={`/Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
+                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
             </div>
             </div>
         )})}
@@ -130,8 +134,9 @@ function ShopComponent(props) {
                 <h3>{item.name}</h3>
                 <p>{item.price}</p>
                 <Button variant="text">
-                <LinkRouter  to={`/Details/${item._id}`}>DETAILS</LinkRouter>
+                <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
+                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
             </div>
             </div>
         )})}
@@ -154,6 +159,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = {
     fetchPlants: plantActions.fetchPlants,
+    addToCart: cartActions.addToCart
     
   }
   
