@@ -7,6 +7,7 @@ const cartActions = {
     },
 
     removeFromCart: (product) => {
+        
         return (dispatch) => {
             dispatch({ type: 'cart/removeFromCart', payload: {id:product} })
         }

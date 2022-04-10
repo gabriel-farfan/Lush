@@ -58,6 +58,7 @@ const userController = {
                     id: req.user.id,
                     firstName: req.user.firstName,
                     lastName: req.user.lastName,
+                    profileurl: req.user.profileurl,
                     email: req.user.email,
                     from: 'token'
                 },
@@ -71,7 +72,7 @@ const userController = {
         }
     },
     signUp: async (req, res) => {
-        const { firstName, lastName, email, password, country, from } = req.body;
+        const { firstName, lastName, email, password, country, profileurl, from } = req.body;
         console.log(req.body)
         try {
             const user = await User.findOne({ email });
@@ -112,6 +113,7 @@ const userController = {
                     email,
                     password: [passwordHash],
                     country,
+                    profileurl,
                     addresses: [],
                     emailVerified: false,
                     uniqueString,
@@ -157,6 +159,7 @@ const userController = {
                     firstName: user.firstName,
                     lastName: user.lastName,
                     email: user.email,
+                    profileurl: user.profileurl,
                     from: user.from
                 };
                 const passwordMatch = user.password.some(pass => bcryptjs.compareSync(password, pass));

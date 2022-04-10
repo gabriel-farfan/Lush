@@ -16,6 +16,7 @@ import './navBar.css'
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -170,7 +171,12 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              {/* {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
+              /> :  */}
+              <PersonIcon/> 
+              {/* } */}
+              {/* {console.log(props.user)} */}
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
             <Menu

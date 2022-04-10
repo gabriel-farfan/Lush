@@ -33,9 +33,11 @@ const cartReducer = (state = initialState, action) => {
                 totalQty: TotalQty(cartAux)
             }
         case 'cart/removeFromCart':
+            console.log(state.cart)
             return {
                 ...state,
-                cart: state.cart.filter(item => item.id !== action.payload.id)
+                cart: state.cart.filter(item => item.plant._id !==
+                action.payload.id)
             }
         case 'cart/checkLocalStorage':
             return {

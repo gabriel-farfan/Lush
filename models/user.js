@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     addresses: [{ type: String, required: false }],
     emailVerified: { type: Boolean, required: true },
     uniqueString: { type: String, required: true },
+    profileurl: {type: String, required: true},
     admin: { type: Boolean, required: false },
     from: { type: Array },
 });
