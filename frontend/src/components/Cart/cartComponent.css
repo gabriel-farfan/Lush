@@ -37,6 +37,10 @@
 
 .cartComponentBtn{
     text-decoration: none;
+    color: #083900;
+}
+.cartComponentBtn2{
+    text-decoration: none;
     color: white;
 }
 
@@ -45,3 +49,4 @@
     justify-content: space-between;
     width: 100%;
 }
+

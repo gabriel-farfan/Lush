@@ -17,6 +17,9 @@ import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -161,7 +164,12 @@ const ResponsiveAppBar = (props) => {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <LinkRouter className="nav" to="/cart" >
+                <Badge badgeContent={props.cart.length} color="error">
+  
                   <ShoppingCartIcon />
+                </Badge>
+    
+              
                   </LinkRouter>
               </Button>
   
@@ -231,6 +239,7 @@ const ResponsiveAppBar = (props) => {
 const mapStateToProps = (state) => {
   return {
       user: state.userReducer.user,
+      cart: state.cartReducer.cart
   }
 }
 

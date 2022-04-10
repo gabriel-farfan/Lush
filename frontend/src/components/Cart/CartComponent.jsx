@@ -67,13 +67,20 @@ function CartComponent() {
                     Clear Cart
             </Button>
               
+              <div>
             <Button
-                variant="contained"
+                variant="outlined"
                 color="primary"
               >
                 <LinkRouter className="cartComponentBtn" to="/Shop" >Keep Shopping</LinkRouter>
               </Button>
-
+              <Button
+                variant="contained"
+                color="primary"
+              >
+                <LinkRouter className="cartComponentBtn2" to="/Cart" >Checkout</LinkRouter>
+              </Button>
+              </div>
             </div>
               <p>
                 Total: {total}
