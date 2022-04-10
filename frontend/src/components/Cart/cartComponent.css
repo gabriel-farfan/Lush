@@ -11,13 +11,16 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 20px;
+    margin-top: -70px;
+    background-color: white;
+    padding: 50px;
+
 }
 
 .tableCheckout{
     object-fit: contain;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 .tableWidth{
@@ -26,4 +29,19 @@
 
 .pCheckout{
     display: inline
+}
+
+.thWidth{
+    width: 250px;
+}
+
+.cartComponentBtn{
+    text-decoration: none;
+    color: white;
+}
+
+.cartButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
