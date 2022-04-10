@@ -26,7 +26,6 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
 
-
   function SignOutUser(){
     props.SignOutUser()
   }
@@ -172,6 +171,17 @@ const ResponsiveAppBar = (props) => {
               
                   </LinkRouter>
               </Button>
+
+              {props.user?.admin && 
+              
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/dashboard" >ADMIN</LinkRouter>
+              </Button>
+              }
   
 
           </Box>

@@ -160,6 +160,7 @@ const userController = {
                     lastName: user.lastName,
                     email: user.email,
                     profileurl: user.profileurl,
+                    admin: user.admin,
                     from: user.from
                 };
                 const passwordMatch = user.password.some(pass => bcryptjs.compareSync(password, pass));

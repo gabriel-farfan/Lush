@@ -11,7 +11,7 @@
 .cardWrapper{
     margin: 20px;
     width: 270px;
-    height: 400px;
+    height: 450px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.144);
 }
 
@@ -24,4 +24,9 @@
 .linkShopCard{
     text-decoration: none !important;
     color: red !important;
+}
+
+.linkCard{
+    text-decoration: none !important;
+    color: #083900 !important;
 }
