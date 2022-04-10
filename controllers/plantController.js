@@ -4,7 +4,7 @@ const plantController = {
     fetchPlants: async (req, res) => {
         let plants, error = null;
         try {
-            plants = await Plant.find(req.query);
+            plants = await Plant.find(JSON.parse(req.query.filter));
         } catch (error) {
             console.error(error);
         }
@@ -15,7 +15,7 @@ const plantController = {
     },
     fetchPlant: async (req, res) => {
         const id = req.params.id;
-        
+
         let plant, error = null;
         try {
             plant = await Plant.findOne({ _id: id });
