@@ -28,9 +28,11 @@ const plantController = {
         });
     },
     savePlant: async (req, res) => {
+        console.log(req.body)
+        console.log(req.ser.admin)
         if (req.ser.admin) {
             let savedPlant, error = null;
-            console.log(req.body)
+            
             const plant = req.body;
             try {
                 savedPlant = await new Plant(plant).save();
