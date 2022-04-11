@@ -60,6 +60,7 @@ const userController = {
                     lastName: req.user.lastName,
                     profileurl: req.user.profileurl,
                     email: req.user.email,
+                    admin: req.user.admin,
                     from: 'token'
                 },
                 message: 'Welcome back ' + req.user.firstName

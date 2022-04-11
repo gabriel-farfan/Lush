@@ -22,7 +22,7 @@ function CartComponent() {
         {cart.map(product => {
           return(
 
-            <div key={product.plant._id} >
+            <div key={product.plant?._id} >
             <div>
             <table className="tableCheckout">
             <thead>
@@ -35,20 +35,20 @@ function CartComponent() {
             </thead>
             <tbody>
                 <tr className="trFlex">
-                  <td><img className="plantImage" src={process.env.PUBLIC_URL+ `/img/plants/${product.plant.images}`} alt="{product.plant.name}" /></td>
-                  <td>{product.plant.name}</td>
-                  <td> <p className="pCheckout">$</p> {product.plant.price}</td>
+                  <td><img className="plantImage" src={process.env.PUBLIC_URL+ `/img/plants/${product.plant?.images}`} alt={product.plant?.name} /></td>
+                  <td>{product.plant?.name}</td>
+                  <td> <p className="pCheckout">$</p> {product.plant?.price}</td>
                   
                   <td>
                   <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, false))}> - </Button> 
                   
                     {product.qty}
                   
-                    <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant._id, true))}> + </Button> 
+                    <Button variant="text" onClick={() => dispatch(cartActions.updateCart(product.plant?._id, true))}> + </Button> 
                   </td>
                     <td> 
                     
-                    <Button variant="text" onClick={() => dispatch(cartActions.removeFromCart(product.plant._id))}>
+                    <Button variant="text" onClick={() => dispatch(cartActions.removeFromCart(product.plant?._id))}>
                     <DeleteIcon />
                     </Button>
 

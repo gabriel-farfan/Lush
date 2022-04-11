@@ -26,6 +26,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
 
+  console.log(props.user)
+
   function SignOutUser(){
     props.SignOutUser()
   }
@@ -189,10 +191,10 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              {/* {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
-              /> :  */}
+              {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
+              /> : 
               <PersonIcon/> 
-              {/* } */}
+              }
               {/* {console.log(props.user)} */}
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
