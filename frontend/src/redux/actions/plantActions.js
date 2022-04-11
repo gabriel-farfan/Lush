@@ -9,16 +9,16 @@ const plantActions = {
     }
   },
   fetchPlant: (id) => {
-    
+
     return async (dispatch, getState) => {
       const res = await axios.get('http://localhost:4000/api/plants/' + id);
-      
-      try{
-        dispatch({type: 'plant/fetchOne', payload: res.data.content.plant })
-      }catch (err) {
+
+      try {
+        dispatch({ type: 'plant/fetchOne', payload: res.data.content.plant })
+      } catch (err) {
         console.log(err)
       }
-      
+
     }
   },
   deletePlant: (id) => {
@@ -31,12 +31,12 @@ const plantActions = {
       }
     }
   },
-  filterPlant: (value) => {
+  filterPlants: (value) => {
     return (dispatch, getState) => {
       dispatch({ type: 'plants/filter', payload: value })
     }
   },
-  savePlant: (plantData ) => {
+  savePlant: (plantData) => {
     console.log(plantData)
     return async (dispatch, getState) => {
       const respuesta = await axios.post(
@@ -47,6 +47,6 @@ const plantActions = {
       })
     }
   },
-} 
+}
 
 export default plantActions
