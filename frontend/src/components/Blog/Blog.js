@@ -15,8 +15,51 @@ function Blog(props) {
   {
     console.log(props);
   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const blogData = {
+      blogTitle: event.target[0].value,
+      text: event.target[1].value,
+      images: event.target[2].value,
+
+      
+    };
+    {console.log(blogData)}
+    props.blogData(blogData)
+  };
   return (
     <div>
+      <form onSubmit={handleSubmit}>
+        
+          <div class="">
+            <input id="blogTitle" class="blogTitle" type="text" placeholder=" " />
+            
+            <label for="blogTitle" class="blogTitle">
+            blogTitle
+            </label>
+          </div>
+          <div class="">
+            <input id="text" class="text" type="text" placeholder=" " />
+            
+            <label for="text" class="text">
+            text
+            </label>
+          </div>
+
+          <div class="">
+            <input id="images" class="images" type="text" placeholder=" " />
+            
+            <label for="images" class="images">
+            images
+            </label>
+          </div>
+
+          <button type="text" class="submit">
+            upload blog
+          </button>
+        
+      </form>
+
       {console.log(props)}
       {props.blogs.map((data) => (
         <Box>
@@ -45,6 +88,7 @@ function Blog(props) {
 }
 const mapDispatchToProps = {
   fetchBlogs: blogActions.fetchBlogs,
+  blogData:blogActions.blogData,
 };
 const mapStateToProps = (state) => {
   return {

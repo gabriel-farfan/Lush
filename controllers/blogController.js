@@ -15,22 +15,21 @@ const blogController = {
     });
   },
   postBlog: async (req, res) => {
-    const { blogTitle, text, images } = req.body;
-    console.log(req.body);
-    try {
-      const blog = await new Blog({
-        blogTitle,
-        text,
-        images,
-      });
-    } catch (error) {
-      console.log(error);
-      res.json({
-        success: false,
-        message: "Oh Snap! An error has occured, please try again",
-      });
-    }
-  },
+    
+       
+          let savedBlog, error = null;
+          const blog = req.body;
+          try {
+              savedBlog = await new Blog(blog).save();
+          } catch (error) {
+              console.error(error);
+          }
+          res.json({
+              content: error ? error : { blog: savedBlog },
+              success: error ? false : true}
+          );
+      }
+  
   // fetchBlog: async (req, res) => {
   //     const id = req.params.id;
 
