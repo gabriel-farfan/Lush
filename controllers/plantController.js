@@ -30,6 +30,7 @@ const plantController = {
     savePlant: async (req, res) => {
         if (req.ser.admin) {
             let savedPlant, error = null;
+            console.log(req.body)
             const plant = req.body;
             try {
                 savedPlant = await new Plant(plant).save();

@@ -8,6 +8,7 @@ import NavBar from './components/NavBar/NavBar'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import Details from './pages/Details';
+import Admin from './pages/Admin';
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
 import { connect, useDispatch } from 'react-redux'
@@ -59,6 +60,7 @@ function App(props) {
       <Route path="/Details/:id" element={<Details/>}/>
       <Route path="/Shop" element={<Shop/>}/>
       <Route path="/Cart" element={<Cart/>}/>
+      <Route path="/Admin" element={<Admin/>}/>
 
       {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
       {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}

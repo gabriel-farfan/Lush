@@ -36,12 +36,11 @@ const plantActions = {
       dispatch({ type: 'plants/filter', payload: value })
     }
   },
-  savePlant: (name, description, price, size, type, images, care, light, room, sadSigns, lightRatio, waterRatio, careRatio ) => {
+  savePlant: (plantData ) => {
+    console.log(plantData)
     return async (dispatch, getState) => {
       const respuesta = await axios.post(
-        'http://localhost:4000/api/plants)',
-        { name, description, price, size, type, images, care, light, room, sadSigns, lightRatio, waterRatio, careRatio },
-      )
+        'http://localhost:4000/api/plants)', plantData)
       dispatch({
         type: 'plants/savePlant',
         payload: respuesta.data.response.plants,

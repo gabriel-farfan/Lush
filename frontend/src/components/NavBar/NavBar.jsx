@@ -181,7 +181,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/dashboard" >ADMIN</LinkRouter>
+                <LinkRouter className="nav" to="/Admin" >ADMIN</LinkRouter>
               </Button>
               }
   
