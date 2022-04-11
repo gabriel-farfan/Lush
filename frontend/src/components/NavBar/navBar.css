@@ -27,3 +27,9 @@
     margin: 8px;
     font-weight: bold;
 }
+
+.profileUrlnav{
+    width: 40px;
+    height: 40px;
+    border-radius: 360px;
+}

@@ -23,7 +23,7 @@ function SignInSide(props) {
     const loggedUser = {
       email: event.target[0].value,
       password: event.target[2].value,
-      from: "signup"
+      from: "signin"
     }
     props.signInUser(loggedUser);
   };

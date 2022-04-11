@@ -16,15 +16,20 @@ import './navBar.css'
 import userActions from '../../redux/actions/userActions'
 import { connect } from 'react-redux'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+
 
 const pages = ['Home', 'Shop', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
 
+  console.log(props.user)
 
   function SignOutUser(){
-    props.SignOutUser(props.user.email)
+    props.SignOutUser()
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -115,13 +120,6 @@ const ResponsiveAppBar = (props) => {
               >
                 <LinkRouter className="navMob" to="/" >Blog</LinkRouter>
               </Button>
-              <Button
-                
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <LinkRouter className="navMob" to="/Cart" >Cart</LinkRouter>
-              </Button>
 
 
             </Menu>
@@ -159,32 +157,46 @@ const ResponsiveAppBar = (props) => {
               >
                 <LinkRouter className="nav" to="/" >Blog</LinkRouter>
               </Button>
-              <Button
-                
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <LinkRouter className="nav" to="/Cart" >Cart</LinkRouter>
-              </Button>
 
-              {props.user && 
+              
               <Button
                 
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/cart" > Cart
+                <LinkRouter className="nav" to="/cart" >
+                <Badge badgeContent={props.cart.length} color="error">
+  
                   <ShoppingCartIcon />
+                </Badge>
+    
+              
                   </LinkRouter>
               </Button>
-  }
+
+              {props.user?.admin && 
+              
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <LinkRouter className="nav" to="/Admin" >ADMIN</LinkRouter>
+              </Button>
+              }
+  
 
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
+              /> : 
+              <PersonIcon/> 
+              }
+              {/* {console.log(props.user)} */}
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
             <Menu
@@ -209,7 +221,7 @@ const ResponsiveAppBar = (props) => {
                 
               
                   
-                <button className="signOutBtn" onClick={SignOutUser}>
+                <button className="signOutBtn" onClick={()=>SignOutUser()}>
                   Sign Out
                 </button>
 
@@ -239,6 +251,7 @@ const ResponsiveAppBar = (props) => {
 const mapStateToProps = (state) => {
   return {
       user: state.userReducer.user,
+      cart: state.cartReducer.cart
   }
 }
 

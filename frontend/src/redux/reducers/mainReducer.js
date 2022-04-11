@@ -2,12 +2,13 @@ import {combineReducers} from 'redux'
 
 import plantReducer from './plantReducer'
 import userReducer from './userReducer'
-import {shoppingReducer} from './shoppingReducer'
+import cartReducer from './cartReducer'
 
 const mainReducer = combineReducers({
     plantReducer,
     userReducer,
-    shoppingReducer
+    cartReducer
+
 })
 
 export default mainReducer

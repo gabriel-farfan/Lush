@@ -4,12 +4,14 @@ import Button from '@mui/material/Button';
 import plantActions from '../../redux/actions/plantActions'
 import {connect} from 'react-redux';
 import {Link as LinkRouter} from "react-router-dom"
+import cartActions from '../../redux/actions/cartActions.js'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 function HomeCardPlant(props) {
-console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", props)
+
 
     const {allPlants, plants, filter, loaded, plant} = props
-    const {filterPlant, fetchPlants} = props
+    const {filterPlant, fetchPlants, addToCart} = props
 
     useEffect(()=> { 
 
@@ -27,10 +29,11 @@ console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", p
             <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
             <div className="cardTextContent">
                 <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <Button variant="text">
-                <LinkRouter to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                <p>$ {item.price}</p>
+                <Button size="small" variant="outlined">
+                <LinkRouter className="linkCard" to={`Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
+                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
             </div>
         </div>
         )})}
@@ -38,4 +41,9 @@ console.log("🚀 ~ file: HomeCardPlant.jsx ~ line 8 ~ HomeCardPlant ~ props", p
   )
 }
 
-export default connect(state => state.plantReducer, plantActions)(HomeCardPlant)
+const mapDispatchToProps = {
+  fetchPlants: plantActions.fetchPlants,
+  addToCart: cartActions.addToCart
+}
+
+export default connect(state => state.plantReducer, mapDispatchToProps)(HomeCardPlant)
