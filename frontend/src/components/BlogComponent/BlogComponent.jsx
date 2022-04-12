@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
-import Grid from '@mui/material/Grid'
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux'
 import blogActions from '../../redux/actions/blogActions'
+import './blogComponent.css'
 
 function BlogComponent() {
 
@@ -23,16 +20,16 @@ console.log("🚀 ~ file: BlogComponent.jsx ~ line 13 ~ BlogComponent ~ blogs", 
 
   return (
     
-    <div>
+    <div className="blogWrapper">
         <div>
-            <div className="blogWrapper">
+            <div >
                 <h2 className="h2HomeBlog">OUR NEWS</h2>
                     {blogs.map(blog => (
                 
                         <div className="blogComponentWrapper" key={blog._id}>
                             <h3 className="h3BlogComponent">{blog.blogTitle}</h3>
-                        <div >
-                            <img src={process.env.PUBLIC_URL+ `/img/blog/${blog.images}`} alt={blog.blogTitle} />
+                        <div className="divImgBlog">
+                            <img className="imgBlog" src={process.env.PUBLIC_URL+ `/img/blog/${blog.images}`} alt={blog.blogTitle} />
                         </div>
                     
                             <p className="pBlogComponent">{blog.text}</p>
