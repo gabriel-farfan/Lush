@@ -1,6 +1,7 @@
 const Router = require('express').Router();
 const passport = require('../config/passport');
 
+const blogController = require("../controllers/blogController");
 const plantController = require('../controllers/plantController');
 const userController = require('../controllers/userController');
 const validator = require('../config/validator');
@@ -41,5 +42,11 @@ Router.route('/auth/signout')
     .post(passport.authenticate('jwt', { session: false }), signOut);
 
 Router.route('/verify/:uniqueString').get(verifyEmail);
+
+const { postBlog, fetchBlogs } = blogController;
+
+Router.route("/blog").get(fetchBlogs);
+
+Router.route("/blog").post(postBlog);
 
 module.exports = Router;
