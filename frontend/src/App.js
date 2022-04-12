@@ -14,6 +14,7 @@ import Cart from './pages/Cart'
 import { connect, useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions'
 import cartActions from './redux/actions/cartActions'
+import Blog from './pages/Blog';
 
 
 const theme = createTheme({
@@ -61,6 +62,7 @@ function App(props) {
       <Route path="/Shop" element={<Shop/>}/>
       <Route path="/Cart" element={<Cart/>}/>
       <Route path="/Admin" element={<Admin/>}/>
+      <Route path="/Blog" element={<Blog/>}/>
 
       {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
       {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}

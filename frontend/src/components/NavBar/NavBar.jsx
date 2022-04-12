@@ -118,7 +118,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="navMob" to="/" >Blog</LinkRouter>
+                <LinkRouter className="navMob" to="/Blog" >Blog</LinkRouter>
               </Button>
 
 
@@ -155,7 +155,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/" >Blog</LinkRouter>
+                <LinkRouter className="nav" to="/Blog" >Blog</LinkRouter>
               </Button>
 
               
