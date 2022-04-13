@@ -47,7 +47,7 @@ const dataClassLowCare = data.filter(item => item.care === "Low Care")
 
   return (
     <div className="carouselWrapper">
-    <h2>If you are a plants serial killer, these are for you!</h2>
+    <h2>If you are a serial plant killer, these are for you!</h2>
       <Carousel
         swipeable={true}
         draggable={true}

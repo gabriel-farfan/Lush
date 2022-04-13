@@ -59,7 +59,7 @@ const userActions = {
     SignOutUser: () => {
         return async (dispatch, getState) => {
             const token = localStorage.getItem('token')
-            const user = await axios.post('http://localhost:4000/api/auth/signout', {
+            const user = await axios.post('http://localhost:4000/api/auth/signout', null, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
