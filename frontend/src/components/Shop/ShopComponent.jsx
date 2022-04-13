@@ -12,7 +12,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Grid } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import Slider from '@mui/material/Slider';
 
 import List from '@mui/material/List';
@@ -23,91 +23,87 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import WaterIcon from '@mui/icons-material/Water';
 
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+
+const careMarks = [
+  {
+    value: 0,
+    label: 'Unkillable',
+  },
+  {
+    value: 50,
+    label: 'No Fuss',
+  },
+  {
+    value: 100,
+    label: 'Extra Love',
+  },
+];
+
+const lightMarks = [
+  {
+    value: 0,
+    label: 'Low',
+  },
+  {
+    value: 50,
+    label: 'Indirect',
+  },
+  {
+    value: 100,
+    label: 'Bright',
+  },
+];
+
+const WaterMarks = [
+  {
+    value: 0,
+    label: 'Desert style',
+  },
+  {
+    value: 50,
+    label: 'Medium',
+  },
+  {
+    value: 100,
+    label: 'Water addicted',
+  },
+];
+
 function ShopComponent(props) {
 
   const { allPlants: data, plants, loaded, filter } = props
 
   const { fetchPlants, addToCart, filterPlants } = props
 
-  const [careRatio, setCareRatio] = useState([0, 100]);
-  const [lightRatio, setLightRatio] = useState([0, 100]);
-  const [waterRatio, setWaterRatio] = useState([0, 100]);
+  const handleSizeFilter = event => {
+    const size = new Set(filter.size);
+    size[event.target.checked ? 'add' : 'delete'](event.target.value);
+    filterPlants({
+      ...filter,
+      size
+    })
+  }
+
+  const handleRoomFilter = event => {
+    const room = new Set(filter.room);
+    room[event.target.checked ? 'add' : 'delete'](event.target.value);
+    filterPlants({
+      ...filter,
+      room
+    })
+  }
 
   useEffect(() => {
     !loaded && fetchPlants();
   }, [])
-
-  const careMarks = [
-    {
-      value: 0,
-      label: 'Easy',
-    },
-    {
-      value: 50,
-      label: 'No Fuss',
-    },
-    {
-      value: 100,
-      label: 'Extra Love',
-    },
-  ];
-
-  const lightAndWaterMarks = [
-    {
-      value: 0,
-      label: 'Low',
-    },
-    {
-      value: 50,
-      label: 'Medium',
-    },
-    {
-      value: 100,
-      label: 'High',
-    },
-  ];
-
-  // const dataClassSizeMedium = data.filter(item => item.size === "medium")
-  // // console.log(dataClassSizeMedium)
-
-  // const dataClassSizeSmall = data.filter(item => item.size === "small")
-  // // console.log(dataClassSizeSmall)
-
-  // const dataClassSizeLarge = data.filter(item => item.size === "large")
-  // // console.log(dataClassSizeLarge)
-
-  // const dataClassLowCare = data.filter(item => item.care === "Low Care")
-  // // console.log(dataClassLowCare)
-
-  // const dataClassMediumCare = data.filter(item => item.care === "Medium Care")
-  // // console.log(dataClassMediumCare)
-
-  // const dataClassHighCare = data.filter(item => item.care === "High Care")
-  // // console.log(dataClassHighCare)
-
-  // const dataClassLowLight = data.filter(item => item.light === "Low light")
-  // // console.log(dataClassLowLight)
-
-  // const dataClassMediumLight = data.filter(item => item.light === "Medium light")
-  // // console.log(dataClassMediumLight)
-
-  // const dataClassBrightLight = data.filter(item => item.light === "Bright light")
-  // // console.log(dataClassBrightLight)
-
-  // const dataClassByRoomBathroom = data.filter(item => item.room === "bathroom")
-  // // console.log(dataClassByRoomBathroom)
-
-  // const dataClassByRoomGarden = data.filter(item => item.room === "garden")
-  // // console.log(dataClassByRoomGarden)
-
-  // const dataClassByRoomBedroom = data.filter(item => item.room === "bedroom")
-  // // console.log(dataClassByRoomBedroom)
-
-  // const dataClassByRoomKitchen = data.filter(item => item.room === "kitchen")
-  // // console.log(dataClassByRoomKitchen)
-
-  // const dataClassByRoomLivingroom = data.filter(item => item.room === "living room")
-  // // console.log(dataClassByRoomLivingroom)
 
   return (
     <div className="wrapperShop">
@@ -138,14 +134,13 @@ function ShopComponent(props) {
                         color="error"
                         marks={careMarks}
                         sx={{ width: 200 }}
-                        value={careRatio}
+                        value={filter.careRatio}
                         valueLabelDisplay="auto"
                         valueLabelFormat={value => value + '%'}
                         onChange={event => {
-                          setCareRatio(event.target.value);
                           filterPlants({
                             ...filter,
-                            careRatio: event.target.value.map(value => value / 100)
+                            careRatio: event.target.value
                           })
                         }}
                       />
@@ -161,16 +156,15 @@ function ShopComponent(props) {
                     secondary={
                       <Slider
                         color="warning"
-                        marks={lightAndWaterMarks}
+                        marks={lightMarks}
                         sx={{ width: 200 }}
-                        value={lightRatio}
+                        value={filter.lightRatio}
                         valueLabelDisplay="auto"
                         valueLabelFormat={value => value + '%'}
                         onChange={event => {
-                          setLightRatio(event.target.value);
                           filterPlants({
                             ...filter,
-                            lightRatio: event.target.value.map(value => value / 100)
+                            lightRatio: event.target.value
                           })
                         }}
                       />
@@ -186,52 +180,87 @@ function ShopComponent(props) {
                     secondary={
                       <Slider
                         color="info"
-                        marks={lightAndWaterMarks}
+                        marks={WaterMarks}
                         sx={{ width: 200 }}
-                        value={waterRatio}
+                        value={filter.waterRatio}
                         valueLabelDisplay="auto"
                         valueLabelFormat={value => value + '%'}
                         onChange={event => {
-                          setWaterRatio(event.target.value);
                           filterPlants({
                             ...filter,
-                            waterRatio: event.target.value.map(value => value / 100)
+                            waterRatio: event.target.value
                           })
                         }}
                       />
                     }
                   />
                 </ListItem>
-
               </List>
-
             </Grid>
             <Grid item md={4}>
-
+              <Typography>Room</Typography>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <FormControlLabel control={<Checkbox defaultChecked value="office" onChange={handleRoomFilter} />} label="Office" />
+                <FormControlLabel control={<Checkbox defaultChecked value="kitchen" onChange={handleRoomFilter} />} label="Kitchen" />
+                <FormControlLabel control={<Checkbox defaultChecked value="bathroom" onChange={handleRoomFilter} />} label="Bathroom" />
+                <FormControlLabel control={<Checkbox defaultChecked value="living room" onChange={handleRoomFilter} />} label="Living Room" />
+                <FormControlLabel control={<Checkbox defaultChecked value="bedroom" onChange={handleRoomFilter} />} label="Bedroom" />
+                <FormControlLabel control={<Checkbox defaultChecked value="garden" onChange={handleRoomFilter} />} label="Garden" />
+              </div>
             </Grid>
             <Grid item md={4}>
-
+              <Typography>Size</Typography>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <FormControlLabel control={<Checkbox defaultChecked value="small" onChange={handleSizeFilter} />} label="Small" />
+                <FormControlLabel control={<Checkbox defaultChecked value="medium" onChange={handleSizeFilter} />} label="Medium" />
+                <FormControlLabel control={<Checkbox defaultChecked value="large" onChange={handleSizeFilter} />} label="Large" />
+              </div>
+              <Divider sx={{ mt: 1, mb: 1 }} />
+              <FormGroup>
+                <Typography>Price</Typography>
+                <div style={{ display: 'flex', gap: '0px 8px' }}>
+                  <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+                    <InputLabel htmlFor="min-price">Min. price</InputLabel>
+                    <Input
+                      id="min-price"
+                      type="number"
+                      inputProps={{ min: 0 }}
+                      value={filter.minPrice}
+                      onChange={event => filterPlants({
+                        ...filter,
+                        minPrice: event.target.value
+                      })}
+                      startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                  </FormControl>
+                  <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+                    <InputLabel htmlFor="max-price">Max. price</InputLabel>
+                    <Input
+                      id="max-price"
+                      type="number"
+                      inputProps={{ min: 0 }}
+                      value={filter.maxPrice}
+                      onChange={event => filterPlants({
+                        ...filter,
+                        maxPrice: event.target.value
+                      })}
+                      startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                  </FormControl>
+                </div>
+              </FormGroup>
             </Grid>
           </Grid>
         </AccordionDetails>
       </Accordion>
-
-
-
-
-
-
-
-
-
       <div className="wrapperMediumSize">
-        {plants.map((item) => {
+        {plants.length === 0 ? (<h1>No plants found</h1>) : plants.map((item) => {
           return (
             <div className="cardWrapper">
               <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
               <div className="cardTextContent">
                 <h3>{item.name}</h3>
-                <p>{item.price}</p>
+                <p>${item.price.toFixed(2)}</p>
                 <Button variant="text">
                   <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
@@ -241,83 +270,6 @@ function ShopComponent(props) {
           )
         })}
       </div>
-
-      {/* <h3 className="h3Shop">Medium Size Plants</h3>
-      <div className="wrapperMediumSize">
-        {dataClassSizeMedium.map((item) => {
-          return (
-            <div className="cardWrapper">
-              <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
-              <div className="cardTextContent">
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <Button variant="text">
-                  <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
-                </Button>
-                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon /></Button>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      <h3 className="h3Shop">Small Plants</h3>
-      <div className="wrapperMediumSize">
-        {dataClassSizeSmall.map((item) => {
-          return (
-            <div className="cardWrapper">
-              <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
-              <div className="cardTextContent">
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <Button variant="text">
-                  <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
-                </Button>
-                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon /></Button>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      <h3 className="h3Shop">Large Plants</h3>
-      <div className="wrapperMediumSize">
-        {dataClassSizeLarge.map((item) => {
-          return (
-            <div className="cardWrapper">
-              <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
-              <div className="cardTextContent">
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <Button variant="text">
-                  <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
-                </Button>
-                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon /></Button>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      <h3 className="h3Shop">If you are a serial plant killer, select one here..</h3>
-      <div className="wrapperMediumSize">
-        {dataClassLowCare.map((item) => {
-          return (
-            <div className="cardWrapper">
-              <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
-              <div className="cardTextContent">
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <Button variant="text">
-                  <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
-                </Button>
-                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon /></Button>
-              </div>
-            </div>
-          )
-        })}
-      </div> */}
-
     </div>
   )
 }
