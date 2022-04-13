@@ -12,10 +12,10 @@ function Home() {
   return (
     <div>
       {/* <NavBar /> */}
-      {/* <HomeWrapper /> */}
       <HomeHero />
       <CarouselComponent />
-      {/* <HomeBlog /> */}
+      {/* <HomeWrapper /> */}
+      <HomeBlog />
       <StandardImageList />
     </div>
   )

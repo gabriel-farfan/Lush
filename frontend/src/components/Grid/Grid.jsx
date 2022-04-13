@@ -13,8 +13,8 @@ export default function StandardImageList() {
                 margin: 2,
                 display: 'grid'
             }} cols={3} rowHeight={250}>
-                {itemData.map((item) => (
-                    <ImageListItem key={item.img} sx={{ overflow: 'hidden', borderRadius: 1 }}>
+                {itemData.map((item, index) => (
+                    <ImageListItem key={item.img + index} sx={{ overflow: 'hidden', borderRadius: 1 }}>
                         <img
                             style={{
                                 objectFit: 'cover',
