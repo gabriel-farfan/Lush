@@ -193,7 +193,7 @@ const ResponsiveAppBar = (props) => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
               /> : 
-              <PersonIcon/> 
+              <PersonIcon className="iconNav" /> 
               }
               {/* {console.log(props.user)} */}
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
