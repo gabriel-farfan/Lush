@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.image_grid {
+    margin: 5px;
+    object-fit: cover;
+    flex-direction: row;
+}
+
+
+.MuiImageListItem-root {
+    flex-direction: row;
+    margin: 8px;
+    display: flex;
+
+}
+
+.MuiImageListItem-imgimage_grid {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    display: flex;
+}
