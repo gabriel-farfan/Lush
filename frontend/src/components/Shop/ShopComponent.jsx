@@ -110,7 +110,7 @@ function ShopComponent(props) {
 
 
       <Accordion
-        sx={{ width: 1100 }}
+        sx={{ width: '100%' }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -200,20 +200,20 @@ function ShopComponent(props) {
             <Grid item md={4}>
               <Typography>Room</Typography>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <FormControlLabel control={<Checkbox defaultChecked value="office" onChange={handleRoomFilter} />} label="Office" />
-                <FormControlLabel control={<Checkbox defaultChecked value="kitchen" onChange={handleRoomFilter} />} label="Kitchen" />
-                <FormControlLabel control={<Checkbox defaultChecked value="bathroom" onChange={handleRoomFilter} />} label="Bathroom" />
-                <FormControlLabel control={<Checkbox defaultChecked value="living room" onChange={handleRoomFilter} />} label="Living Room" />
-                <FormControlLabel control={<Checkbox defaultChecked value="bedroom" onChange={handleRoomFilter} />} label="Bedroom" />
-                <FormControlLabel control={<Checkbox defaultChecked value="garden" onChange={handleRoomFilter} />} label="Garden" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('office')} value="office" onChange={handleRoomFilter} />} label="Office" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('kitchen')} value="kitchen" onChange={handleRoomFilter} />} label="Kitchen" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('bathroom')} value="bathroom" onChange={handleRoomFilter} />} label="Bathroom" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('living room')} value="living room" onChange={handleRoomFilter} />} label="Living Room" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('bedroom')} value="bedroom" onChange={handleRoomFilter} />} label="Bedroom" />
+                <FormControlLabel control={<Checkbox checked={filter.room.has('garden')} value="garden" onChange={handleRoomFilter} />} label="Garden" />
               </div>
             </Grid>
             <Grid item md={4}>
               <Typography>Size</Typography>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <FormControlLabel control={<Checkbox defaultChecked value="small" onChange={handleSizeFilter} />} label="Small" />
-                <FormControlLabel control={<Checkbox defaultChecked value="medium" onChange={handleSizeFilter} />} label="Medium" />
-                <FormControlLabel control={<Checkbox defaultChecked value="large" onChange={handleSizeFilter} />} label="Large" />
+                <FormControlLabel control={<Checkbox checked={filter.size.has('small')} value="small" onChange={handleSizeFilter} />} label="Small" />
+                <FormControlLabel control={<Checkbox checked={filter.size.has('medium')} value="medium" onChange={handleSizeFilter} />} label="Medium" />
+                <FormControlLabel control={<Checkbox checked={filter.size.has('large')} value="large" onChange={handleSizeFilter} />} label="Large" />
               </div>
               <Divider sx={{ mt: 1, mb: 1 }} />
               <FormGroup>

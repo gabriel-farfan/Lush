@@ -6,6 +6,7 @@ import StandardImageList from '../components/Grid/Grid'
 
 import CarouselComponent from '../components/Carousel/Carousel'
 import HomeBlog from '../components/HomeBlog/HomeBlog'
+import Quiz from '../components/Quiz/Quiz'
 
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <CarouselComponent />
       {/* <HomeWrapper /> */}
       <HomeBlog />
+      <Quiz />
       <StandardImageList />
     </div>
   )
