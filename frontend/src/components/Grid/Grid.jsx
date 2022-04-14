@@ -2,32 +2,36 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import './grid.css';
+import { Typography } from '@mui/material';
 
 export default function StandardImageList() {
     return (
-        <div className="container">
-            <ImageList sx={{
-                width: 1200,
-                height: 550,
-                gap: 5,
-                margin: 2,
-                display: 'grid'
-            }} cols={3} rowHeight={250}>
-                {itemData.map((item, index) => (
-                    <ImageListItem key={item.img + index} sx={{ overflow: 'hidden', borderRadius: 1 }}>
-                        <img
-                            style={{
-                                objectFit: 'cover',
-                            }}
-                            src={item.img}
-                            srcSet={item.img}
-                            alt={item.title}
-                            loading="lazy"
-                        />
-                    </ImageListItem>
-                ))}
-            </ImageList>
-        </div>
+        <>
+            <Typography variant="h2" sx={{ padding: '10px', marginTop: '25px' }}>Design by nature</Typography>
+            <div className="container">
+                <ImageList sx={{
+                    width: 1200,
+                    height: 550,
+                    gap: 5,
+                    margin: 2,
+                    display: 'grid'
+                }} cols={3} rowHeight={250}>
+                    {itemData.map((item) => (
+                        <ImageListItem key={item.img} sx={{ overflow: 'hidden', borderRadius: 1 }}>
+                            <img
+                                style={{
+                                    objectFit: 'cover',
+                                }}
+                                src={item.img}
+                                srcSet={item.img}
+                                alt={item.title}
+                                loading="lazy"
+                            />
+                        </ImageListItem>
+                    ))}
+                </ImageList>
+            </div>
+        </>
     );
 }
 
