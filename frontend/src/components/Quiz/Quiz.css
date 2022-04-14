@@ -1,0 +1,110 @@
+.mainBox {
+    border-radius: 10px;
+    background-image: url(./assets/qioz11.jpeg);
+    background-size: cover;
+    /* display: flex; */
+    flex-wrap: wrap;
+    margin: 2em;
+}
+
+.mainBox2 {
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.grid1 {
+    color: white;
+    font-size: 2rem;
+    background-image: url(./assets/quiz4.jpg);
+    background-size: cover;
+}
+
+.grid_question {
+    font-size: 1.5rem;
+    /* margin-top: 2em; */
+    /* margin-bottom: 8em; */
+    color: #0f4c5c;
+    padding: 2em;
+}
+
+
+.mainSquare {
+    background-color: #ca6702;
+}
+
+#gridPlant1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 2em;
+}
+
+#gridPlant2 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 2em;
+}
+
+#gridPlant3 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 7em;
+}
+
+#gridPlant4 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 7em;
+}
+
+#gridPlant5 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 7em;
+}
+
+
+.grid_plant3 {
+    height: 15vh;
+    margin-bottom: 1em;
+}
+
+.square {
+    background-color: #faa307;
+    height: 20vh;
+
+}
+
+
+#squareid1 {
+    height: 15vh;
+
+
+}
+
+#squareid2 {
+    height: 15vh;
+}
+
+#squareid3 {
+    height: 15vh;
+}
+
+#squareid4 {
+    height: 15vh;
+}
+
+#squareid5 {
+    height: 15vh;
+}
+
+.typo {
+    border-radius: 20px;
+    /* color: #0f4c5c; */
+
+}
+
+.MuiGrid-root {
+    margin-right: 2em;
+    margin-top: 0.5px
+}

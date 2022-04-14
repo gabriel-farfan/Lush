@@ -24,7 +24,6 @@ const initialState = {
 const plantReducer = (state = initialState, action) => {
   let filter = state.filter;
   const doFilter = plant => {
-    console.log(filter)
     if (plant.careRatio * 100 < filter.careRatio[0] || plant.careRatio * 100 > filter.careRatio[1]) {
       return false;
     }
@@ -53,6 +52,7 @@ const plantReducer = (state = initialState, action) => {
       const loaded = true
       const allPlants = action.payload.sort((left, right) => left._id.localeCompare(right._id));
       const plants = allPlants.filter(doFilter)
+      console.log(allPlants, plants);
       return {
         ...state,
         loaded,
@@ -90,6 +90,7 @@ const plantReducer = (state = initialState, action) => {
     case 'plants/filter': {
       filter = action.payload
       const plants = state.allPlants.filter(doFilter);
+      console.log(plants);
       return {
         ...state,
         filter,
