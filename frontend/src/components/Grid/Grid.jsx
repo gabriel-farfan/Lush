@@ -6,37 +6,12 @@ import { Typography } from '@mui/material';
 
 export default function StandardImageList() {
     return (
-<<<<<<< HEAD
-        <div className="container">
-            <ImageList sx={{
-                width: 1200,
-                // height: 550,
-                gap: 5,
-                margin: 2,
-                display: 'grid'
-            }} cols={3} rowHeight={250}>
-                {itemData.map((item, index) => (
-                    <ImageListItem key={item.img + index} sx={{ overflow: 'hidden', borderRadius: 1 }}>
-                        <img
-                            style={{
-                                objectFit: 'cover',
-                            }}
-                            src={item.img}
-                            srcSet={item.img}
-                            alt={item.title}
-                            loading="lazy"
-                        />
-                    </ImageListItem>
-                ))}
-            </ImageList>
-        </div>
-=======
         <>
             <Typography variant="h2" sx={{ padding: '10px', marginTop: '25px' }}>Design by nature</Typography>
             <div className="container">
                 <ImageList sx={{
                     width: 1200,
-                    height: 550,
+                    // height: 550,
                     gap: 5,
                     margin: 2,
                     display: 'grid'
@@ -57,7 +32,6 @@ export default function StandardImageList() {
                 </ImageList>
             </div>
         </>
->>>>>>> 1d8f2717f300c59b9df6f51295337a8c733c2894
     );
 }
 

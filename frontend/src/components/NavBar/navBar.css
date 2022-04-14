@@ -1,6 +1,7 @@
 .nav{
     color: white;
     text-decoration: none;
+    z-index: 10;
 }
 
 .navMob{
@@ -36,4 +37,8 @@
 
 .iconNav{
     color: white;
+}
+
+.appbar{
+    z-index: 10;
 }
