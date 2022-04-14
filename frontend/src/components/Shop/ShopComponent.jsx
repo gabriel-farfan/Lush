@@ -110,7 +110,7 @@ function ShopComponent(props) {
 
 
       <Accordion
-        sx={{ width: 1100 }}
+        sx={{ width: '100%', margin: '0 auto' }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

@@ -8,7 +8,7 @@ export default function StandardImageList() {
         <div className="container">
             <ImageList sx={{
                 width: 1200,
-                height: 550,
+                // height: 550,
                 gap: 5,
                 margin: 2,
                 display: 'grid'
