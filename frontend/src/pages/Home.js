@@ -1,16 +1,22 @@
 import React from 'react'
-// import NavBar from '../components/NavBar/NavBar'
 import HomeHero from '../components/HomeHero/HomeHero'
+
 import HomeWrapper from '../components/HomeWrapper/HomeWrapper'
-import Carrousel from '../components/Carrousel/Carrousel'
+import StandardImageList from '../components/Grid/Grid'
+
+import CarouselComponent from '../components/Carousel/Carousel'
+import HomeBlog from '../components/HomeBlog/HomeBlog'
+
 
 function Home() {
   return (
     <div>
-        {/* <NavBar /> */}
-        <HomeHero />
-        <HomeWrapper/>
-        <Carrousel/>
+      {/* <NavBar /> */}
+      <HomeHero />
+      <CarouselComponent />
+      {/* <HomeWrapper /> */}
+      <HomeBlog />
+      <StandardImageList />
     </div>
   )
 }

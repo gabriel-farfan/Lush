@@ -1,0 +1,39 @@
+.carouselWrapper{
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 85%;
+}
+
+.cardComponentWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.cardWrapperCarousel{
+    margin: 20px;
+    width: 270px;
+    height: 450px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.144);
+}
+
+.imgCard{
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+}
+
+.linkShopCard{
+    text-decoration: none !important;
+    color: red !important;
+}
+
+.linkCard{
+    text-decoration: none !important;
+    color: #083900 !important;
+}

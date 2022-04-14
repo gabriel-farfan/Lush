@@ -20,7 +20,7 @@ const validator = (req, res, next) => {
         country: joi.string().required(),
         from: joi.string().required()
     });
-    const validation = schema.validate(req.body.userData, { abortEarly: false });
+    const validation = schema.validate(req.body, { abortEarly: false });
     if (validation.error) {
         return res.json({
             success: false,

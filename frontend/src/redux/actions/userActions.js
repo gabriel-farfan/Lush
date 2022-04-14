@@ -9,15 +9,15 @@ const alertsToasts = (icon, message) => {
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
-      })
+    })
 
-      Toast.fire({
+    Toast.fire({
         icon: `${icon}`,
         title: `${message}`
-      })
+    })
 }
 
 const userActions = {
@@ -33,6 +33,11 @@ const userActions = {
                     success: res.data.success
                 }
             });
+            alertsToasts(res.data.success ? 'success' : 'error',
+                Array.isArray(res.data.message) ?
+                    res.data.message.map(msg => msg.message).join('<hr>') :
+                    res.data.message
+            )
         }
     },
     signInUser: (loggedUser) => {
@@ -49,17 +54,16 @@ const userActions = {
                         success: user.data.success
                     }
                 })
-                alertsToasts('success', user.data.message)
             } else {
                 console.log(user.data.message)
-                alertsToasts('error', user.data.message)
             }
+            alertsToasts('error', user.data.message)
         }
     },
     SignOutUser: () => {
         return async (dispatch, getState) => {
             const token = localStorage.getItem('token')
-            const user = await axios.post('http://localhost:4000/api/auth/signout', {
+            const user = await axios.post('http://localhost:4000/api/auth/signout', null, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }

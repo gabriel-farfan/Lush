@@ -118,7 +118,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="navMob" to="/" >Blog</LinkRouter>
+                <LinkRouter className="navMob" to="/Blog" >Blog</LinkRouter>
               </Button>
 
 
@@ -155,7 +155,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className="nav" to="/" >Blog</LinkRouter>
+                <LinkRouter className="nav" to="/Blog" >Blog</LinkRouter>
               </Button>
 
               
@@ -193,7 +193,7 @@ const ResponsiveAppBar = (props) => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               {props.user ? <img className="profileUrlnav" src={props.user.profileurl} alt={props.user.firstName}
               /> : 
-              <PersonIcon/> 
+              <PersonIcon className="iconNav" /> 
               }
               {/* {console.log(props.user)} */}
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}

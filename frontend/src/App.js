@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react'
 import Home from './pages/Home';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar'
 import SignInPage from './pages/SignInPage';
@@ -14,6 +14,7 @@ import Cart from './pages/Cart'
 import { connect, useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions'
 import cartActions from './redux/actions/cartActions'
+import Blog from './pages/Blog';
 
 
 const theme = createTheme({
@@ -36,43 +37,44 @@ function App(props) {
 
 
   useEffect(() => {
-    if(localStorage.getItem('token')!== null){
+    if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem('token')
       props.verifyToken(token)
     }
-    if(localStorage.getItem('cart')!== null){
+    if (localStorage.getItem('cart') !== null) {
       dispatch(cartActions.checkLocalStorage())
     }
-  },[])
+  }, [])
 
 
 
   return (
     <ThemeProvider theme={theme}>
-    <div className="App">
-    <BrowserRouter> 
-      
-      <NavBar />
-      <Routes>
-      
+      <div className="App">
+        <BrowserRouter>
 
-      <Route path="/" element={<Home/>}/>
-      <Route path="/Details/:id" element={<Details/>}/>
-      <Route path="/Shop" element={<Shop/>}/>
-      <Route path="/Cart" element={<Cart/>}/>
-      <Route path="/Admin" element={<Admin/>}/>
+          <NavBar />
+          <Routes>
 
-      {!props.user && <Route path="/SignIn" element={<SignInPage/>}/>}
-      {!props.user && <Route path="/SignUp" element={<SignUpPage/>}/>}
 
-      
+            <Route path="/" element={<Home />} />
+            <Route path="/Details/:id" element={<Details />} />
+            <Route path="/Shop" element={<Shop />} />
+            <Route path="/Cart" element={<Cart />} />
+            <Route path="/Admin" element={<Admin />} />
+            <Route path="/Blog" element={<Blog />} />
 
-      <Route path="*" element={<Home/>}/>
-      </Routes>
-      <Footer />
+            {!props.user && <Route path="/SignIn" element={<SignInPage />} />}
+            {!props.user && <Route path="/SignUp" element={<SignUpPage />} />}
 
-      </BrowserRouter>
-    </div>
+
+
+            <Route path="*" element={<Home />} />
+          </Routes>
+          <Footer />
+
+        </BrowserRouter>
+      </div>
     </ThemeProvider>
   );
 }
