@@ -5,7 +5,7 @@ const initialState = {
 
 }
 
-const TotalPrice = (cart = []) => {
+export const TotalPrice = (cart = []) => {
     const total = cart.map(plantitem => plantitem.plant.price * plantitem.qty).reduce((acc, curr) => acc + curr, 0)
     return total.toFixed(2)
 }

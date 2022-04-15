@@ -34,6 +34,7 @@ const ShoppingCart = () => {
           />
         ))}
       </article>
+
     </div>
   );
 };
