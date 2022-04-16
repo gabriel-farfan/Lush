@@ -37,30 +37,30 @@ function Footer() {
                         <Grid item xs={12} sm={3}>
                           <Box className="tittle" borderBottom="1">Contact</Box>
                           <Box className="quicklinks">
-                          <a className="socialbrands" href=""><LocalPhoneIcon/> (011) 40323987</a>
-                          <a className="socialbrands" href=""><LocationOnIcon/> Olga Cossettini 1540, CABA</a>
-                          <a className="socialbrands" href=""><EmailIcon/> info@lush.com</a>
-                          <a className="socialbrands" href=""><WhatsAppIcon/> +5491153432342</a>
+                          <a className="socialbrands" href=""><LocalPhoneIcon className="iconIgPrueba"/> (011) 40323987</a>
+                          <a className="socialbrands" href=""><LocationOnIcon className="iconIgPrueba"/> Olga Cossettini 1540, CABA</a>
+                          <a className="socialbrands" href=""><EmailIcon className="iconIgPrueba"/> info@lush.com</a>
+                          <a className="socialbrands" href=""><WhatsAppIcon className="iconIgPrueba"/> +5491153432342</a>
                           </Box>
                         </Grid>
                         <Grid item xs={12} sm={3}>
                           <Box className="tittle" borderBottom="1">Social Networks</Box>
                           <Box className="quicklinks">
-                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><InstagramIcon/>Instagram</a>
-                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><FacebookIcon/>  Facebook</a>
-                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><YouTubeIcon/>  YouTube</a>
-                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><TwitterIcon/>  Twitter</a>
+                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><InstagramIcon className="iconIgPrueba"/>Instagram</a>
+                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><FacebookIcon className="iconIgPrueba"/>  Facebook</a>
+                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><YouTubeIcon className="iconIgPrueba"/>  YouTube</a>
+                          <a className="socialbrands" href="https://www.instagram.com/mindhub_la/?hl=es"><TwitterIcon className="iconIgPrueba"/>  Twitter</a>
                           </Box>
                         </Grid>
                         <Grid item xs={12} sm={3}>
                           <Box className="tittle" borderBottom="1">About the Authors</Box>
                           <Box className="quicklinks">
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Agustín Montoya</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Gabriel Farfan</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Chantal Pilia</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Hugo Onofri</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Agustín Montoya</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon/>  Sergio Robledo</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Agustín Montoya</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Gabriel Farfan</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Chantal Pilia</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Hugo Onofri</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Agustín Montoya</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Sergio Robledo</a>
                           
                           </Box>
                         </Grid>
