@@ -23,14 +23,14 @@ const questions = [
             'Office',
             'Bathroom',
             'Living Room',
-            'No preference',
+            'Garden',
         ]
     },
     {
         text: 'How much natural light does your space get?',
         options: [
-            'Quite a lot',
             'Not much',
+            'Quite a lot',
         ]
     },
     {
@@ -84,7 +84,7 @@ function Quiz(props) {
         });
     }
     return (
-        <Box sx={{ flexGrow: 1, margin: 5}} className='mainBox'>
+        <Box sx={{ flexGrow: 1, margin: 5 }} className='mainBox'>
             <Grid container spacing={{ md: 3 }} columns={{ md: 12 }} className='mainBox2' sx={{ borderRadius: 2, height: 500 }}>
                 {
                     question === -1 ? (
@@ -106,7 +106,7 @@ function Quiz(props) {
                                             <Card onClick={() => {
                                                 setAnswers([...answers, { index, option }]);
                                                 setQuestion(question + 1);
-                                            }} className='grid_plant3' sx={{ margin: 'auto', borderRadius: 2, width: 130, height: 60, marginTop: 0}}>
+                                            }} className='grid_plant3' sx={{ margin: 'auto', borderRadius: 2, width: 130, height: 60, marginTop: 0 }}>
                                                 <CardActionArea className='mainSquare'>
                                                     <CardContent className='square' id="squareid1">
                                                         <Typography variant="body2" color="white" className='typo'>
