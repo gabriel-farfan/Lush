@@ -1,10 +1,16 @@
 .mainBox {
     border-radius: 10px;
-    background-image: url(./assets/qioz11.jpeg);
+    width: 70%;
+    margin: auto !important;
+    margin-top: 80px !important;
+    background-image: url(./assets/qioz11.jpeg); 
     background-size: cover;
     /* display: flex; */
-    flex-wrap: wrap;
-    margin: 2em;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    /* margin: 2em; */
+    /* align-items: center;
+    justify-content: center; */
 }
 
 .mainBox2 {
@@ -14,10 +20,25 @@
 }
 
 .grid1 {
-    color: white;
-    font-size: 2rem;
-    background-image: url(./assets/quiz4.jpg);
+    color: #0f4c5c;
+    /* text-shadow: 0px 2px 5px rgba(255, 255, 255, 0.924) !important; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    /* font-size: 2rem; */
+    background-image: url(./assets/qioz11.jpeg);
     background-size: cover;
+}
+
+.grid1 > h2 {
+    font-size: 35px;
+    margin-top: 15%;
+    background-color: rgba(4, 75, 68, 0.093);
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: center;
 }
 
 .grid_question {
@@ -25,24 +46,31 @@
     /* margin-top: 2em; */
     /* margin-bottom: 8em; */
     color: #0f4c5c;
-    padding: 2em;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f2f2f29c;
+    width: 80% !important;
 }
 
 
 .mainSquare {
-    background-color: #ca6702;
+    background-color: #0f4c5c;
 }
 
 #gridPlant1 {
     display: flex;
     flex-wrap: nowrap;
     margin-top: 2em;
+    border: 3px solid green;
 }
 
 #gridPlant2 {
     display: flex;
     flex-wrap: nowrap;
     margin-top: 2em;
+    border: 3px solid yellow;
 }
 
 #gridPlant3 {
@@ -70,16 +98,19 @@
 }
 
 .square {
-    background-color: #faa307;
-    height: 20vh;
+    background-color: #0f4d5cc4;
+    height: 15vh;
+    /* height: 20vh; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
 
 }
 
 
-#squareid1 {
+/* #squareid1 {
     height: 15vh;
-
-
 }
 
 #squareid2 {
@@ -96,7 +127,7 @@
 
 #squareid5 {
     height: 15vh;
-}
+} */
 
 .typo {
     border-radius: 20px;
@@ -104,7 +135,43 @@
 
 }
 
-.MuiGrid-root {
+/* .MuiGrid-root {
     margin-right: 2em;
     margin-top: 0.5px
+} */
+
+.css-1dahn2m-MuiGrid-root{
+    justify-content: center;
+}
+
+.css-u0y7p5-MuiGrid-root{
+    justify-content: center;
+}
+
+.css-u0y7p5-MuiGrid-root > a{
+    color: #0f4c5c;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .mainBox{
+        width: 90%;
+        margin: auto !important;
+        margin-top: 40px !important;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .grid1 > h2{
+        margin-top: 50%;
+        font-size: 20px
+    }
+    
+}
+
+.css-u0y7p5-MuiGrid-root{
+    width: 100% !important;
+    margin: auto !important;
 }

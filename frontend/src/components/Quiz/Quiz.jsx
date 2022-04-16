@@ -42,16 +42,16 @@ const questions = [
         ]
     },
     {
-        text: 'Water?',
+        text: 'How often will you remember to water your plants?',
         options: [
-            'poca',
-            'mucha!'
+            'Hardly ever',
+            'I\'ll water it every day!'
         ]
     },
     {
-        text: 'Size?',
+        text: 'How big a plant do you want?',
         options: [
-            'Small',
+            'Small-ish',
             'Medium',
             'Large'
         ]
@@ -84,32 +84,32 @@ function Quiz(props) {
         });
     }
     return (
-        <Box sx={{ flexGrow: 1 }} className='mainBox'>
+        <Box sx={{ flexGrow: 1, margin: 5}} className='mainBox'>
             <Grid container spacing={{ md: 3 }} columns={{ md: 12 }} className='mainBox2' sx={{ borderRadius: 2, height: 500 }}>
                 {
                     question === -1 ? (
                         <Grid item md={12} className='grid1' sx={{ height: 500, borderRadius: 2 }}>
                             <h2>What's Plants are Best for You?</h2>
-                            <Button onClick={() => setQuestion(question + 1)} variant="contained" color="success">
+                            <Button onClick={() => setQuestion(question + 1)} variant="contained" color="primary">
                                 Start
                             </Button>
                         </Grid>
                     ) : question < questions.length ? (
                         <>
-                            <Grid item md={5} className='grid_question'>
+                            <Grid item sm={12} className='grid_question'>
                                 {questions[question].text}
                             </Grid>
-                            <Grid item md={7} className='grid_plant1'>
-                                <Grid container spacing={{ md: 3 }} columns={{ md: 12 }} className='gridPlant'>
+                            <Grid item sm={12} className='grid_plant1'>
+                                <Grid container spacing={{ md: 1 }} columns={{ sm: 12 }} className='gridPlant'>
                                     {questions[question].options.map((option, index) => (
-                                        <Grid item md={questions.length % 3 == 0 ? 4 : 6} key={index} className='grid_plant2'>
+                                        <Grid item sm={questions.length % 3 == 0 ? 4 : 6} key={index} className='grid_plant2'>
                                             <Card onClick={() => {
                                                 setAnswers([...answers, { index, option }]);
                                                 setQuestion(question + 1);
-                                            }} className='grid_plant3' sx={{ borderRadius: 2, width: 150, marginTop: 2 }}>
+                                            }} className='grid_plant3' sx={{ margin: 'auto', borderRadius: 2, width: 130, height: 60, marginTop: 0}}>
                                                 <CardActionArea className='mainSquare'>
                                                     <CardContent className='square' id="squareid1">
-                                                        <Typography variant="body2" color="text.secondary" className='typo'>
+                                                        <Typography variant="body2" color="white" className='typo'>
                                                             {option}
                                                         </Typography>
                                                     </CardContent>
@@ -122,7 +122,7 @@ function Quiz(props) {
                         </>
                     ) : (
                         <>
-                            <Link onClick={finalizeQuiz} to="/Shop">Descubre estas plantas para ti</Link>
+                            <Link onClick={finalizeQuiz} to="/Shop">That's the perfect potted pal for your home...</Link>
                         </>
                     )
                 }
