@@ -10,6 +10,7 @@
 .tittle{
     font-size: 1.5rem;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .quicklinks{
@@ -37,3 +38,6 @@
     z-index: 3;
 }
 
+.iconIgPrueba{
+    margin-right: 8px;
+}

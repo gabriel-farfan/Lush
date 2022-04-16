@@ -24,7 +24,7 @@ console.log("🚀 ~ file: BlogComponent.jsx ~ line 13 ~ BlogComponent ~ blogs", 
         <div>
             <div >
                 <h2 className="h2HomeBlog">OUR NEWS</h2>
-                    {blogs.map(blog => (
+                    {blogs?.map(blog => (
                 
                         <div className="blogComponentWrapper" key={blog._id}>
                             <h3 className="h3BlogComponent">{blog.blogTitle}</h3>

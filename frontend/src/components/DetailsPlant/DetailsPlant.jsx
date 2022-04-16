@@ -54,7 +54,7 @@ function DetailsPlant(props) {
 
 
 
-                            <Button onClick={() => addToCart(plant)} variant="outlined">ADD TO CART</Button>
+                            <Button onClick={() => addToCart(plant)} variant="contained">ADD TO CART</Button>
                         </Box>
                     </Grid>
                     {/*     <Grid
