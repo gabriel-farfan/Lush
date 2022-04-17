@@ -95,7 +95,7 @@ function CarouselComponent(props) {
                 <Button size="small" variant="outlined">
                   <LinkRouter className="linkCard" to={`Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
-                <Button size="small" onClick={() => { addToCart(item); alertsToasts('success', 'you added a plant') }} variant="contained"><AddShoppingCartIcon /></Button>
+                <Button size="small" onClick={() => { addToCart(item); alertsToasts('success', 'Plant succesfully added to your cart') }} variant="contained"><AddShoppingCartIcon /></Button>
               </div>
             </div>
           )

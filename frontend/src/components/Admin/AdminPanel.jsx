@@ -75,7 +75,6 @@ function AdminPanel() {
                   fullWidth
                   id="firstName"
                   label="Plant Name"
-                  autoFocus
                 />
               </Grid>
               

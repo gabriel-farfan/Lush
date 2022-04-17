@@ -75,7 +75,7 @@ function DetailsPlant(props) {
                                 </Button>
 
 
-                                <Button onClick={() => { addToCart(plant); alertsToasts('success', 'you added a plant ') }} variant="contained">ADD TO CART</Button>
+                                <Button onClick={() => { addToCart(plant); alertsToasts('success', 'Plant succesfully added to your cart') }} variant="contained">ADD TO CART</Button>
                             </Box>
                         </Grid>
                         {/*     <Grid

@@ -61,7 +61,6 @@ function AdminPanelBlog() {
                   fullWidth
                   id="blogTitle"
                   label="Article Title"
-                  autoFocus
                 />
               </Grid>
               
