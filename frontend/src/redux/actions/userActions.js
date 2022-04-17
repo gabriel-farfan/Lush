@@ -44,6 +44,7 @@ const userActions = {
         return async (dispatch, getState) => {
             const user = await axios.post('http://localhost:4000/api/auth/signin', loggedUser)
             if (user.data.success) {
+                alertsToasts('success', user.data.message)
                 localStorage.setItem('token', user.data.response.token)
                 dispatch({ type: 'user', payload: user.data.response.user });
                 dispatch({
@@ -57,7 +58,7 @@ const userActions = {
             } else {
                 console.log(user.data.message)
             }
-            alertsToasts('error', user.data.message)
+
         }
     },
     SignOutUser: () => {

@@ -18,7 +18,7 @@ const initialState = {
     ])
   },
   loaded: false,
-  plant: {},
+  plant: null
 }
 
 const plantReducer = (state = initialState, action) => {
@@ -65,6 +65,15 @@ const plantReducer = (state = initialState, action) => {
         ...state,
         loaded: true,
         plant: action.payload
+      }
+    }
+    case 'plant/unload': {
+      return {
+        ...state,
+        loaded: false,
+        allPlants: [],
+        plants: [],
+        plant: null
       }
     }
     case 'plant/delete': {

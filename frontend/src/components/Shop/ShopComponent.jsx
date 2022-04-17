@@ -31,6 +31,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
+import Swal from 'sweetalert2'
 
 const careMarks = [
   {
@@ -78,6 +79,25 @@ const WaterMarks = [
 ];
 
 function ShopComponent(props) {
+
+  const alertsToasts = (icon, message) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: `${icon}`,
+      title: `${message}`
+    })
+  }
 
   const { allPlants: data, plants, loaded, filter } = props
 
@@ -263,7 +283,7 @@ function ShopComponent(props) {
                 <Button variant="text">
                   <LinkRouter className="linkCard" to={`/Details/${item._id}`}>DETAILS</LinkRouter>
                 </Button>
-                <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon /></Button>
+                <Button size="small" onClick={() => { addToCart(item); alertsToasts('success', 'you added a plant') }} variant="contained"><AddShoppingCartIcon /></Button>
               </div>
             </div>
           )

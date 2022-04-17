@@ -3,6 +3,7 @@ import axios from 'axios'
 const plantActions = {
   fetchPlants: () => {
     return async (dispatch, getState) => {
+      dispatch({ type: 'plant/unload' });
       const res = await axios.get('http://localhost:4000/api/plants')
       // console.log(res.data)
       dispatch({ type: 'plant/fetch', payload: res.data.content.plants })
@@ -11,6 +12,7 @@ const plantActions = {
   fetchPlant: (id) => {
 
     return async (dispatch, getState) => {
+      dispatch({ type: 'plant/unload' });
       const res = await axios.get('http://localhost:4000/api/plants/' + id);
 
       try {

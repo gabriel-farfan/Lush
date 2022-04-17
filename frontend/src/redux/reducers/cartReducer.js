@@ -19,12 +19,12 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'cart/addToCart':
             const bool = state.cart.some(item => item.plant._id === action.payload._id)
-            
-            
+
+
             let cartAux = [...state.cart]
-            
-            
-            if (!bool) {cartAux.push({plant: action.payload, qty: 1})}
+
+
+            if (!bool) { cartAux.push({ plant: action.payload, qty: 1 }) }
             localStorage.setItem('cart', JSON.stringify(cartAux))
             return {
                 ...state,
@@ -33,11 +33,12 @@ const cartReducer = (state = initialState, action) => {
                 totalQty: TotalQty(cartAux)
             }
         case 'cart/removeFromCart':
-            console.log(state.cart)
+            const cart = state.cart.filter(item => item.plant._id !== action.payload.id);
             return {
                 ...state,
-                cart: state.cart.filter(item => item.plant._id !==
-                action.payload.id)
+                cart,
+                total: TotalPrice(cart),
+                totalQty: TotalQty(cart)
             }
         case 'cart/updateCart':
             const cartAux2 = [...state.cart]
@@ -50,7 +51,7 @@ const cartReducer = (state = initialState, action) => {
                 total: TotalPrice(cartAux2),
                 totalQty: TotalQty(cartAux2)
             }
-        
+
         case 'cart/checkLocalStorage':
             return {
                 ...state,
@@ -65,11 +66,11 @@ const cartReducer = (state = initialState, action) => {
                 total: 0,
                 totalQty: 0
             }
-        
+
         default:
             return state
 
-        }
+    }
 }
 
 export default cartReducer
