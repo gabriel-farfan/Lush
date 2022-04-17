@@ -151,7 +151,7 @@ function SignUp(props) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-              <LinkRouter className="" to="/SignIn" >Already have an account? Sign In</LinkRouter>
+              <LinkRouter className="linkEditSignUp" to="/SignIn" >Already have an account? Sign In</LinkRouter>
                 
               </Grid>
             </Grid>

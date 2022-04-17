@@ -48,6 +48,17 @@
 .cartButtons{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 70%;
+    margin: auto;
 }
 
+
+
+.paypalWrapper{
+    width: 70%;
+    margin: auto;
+}
+
+.paypalComponent{
+    width: 100%;
+}

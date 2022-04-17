@@ -36,7 +36,7 @@ function HomeBlog() {
                                     <Box className="home-blog-box">
                                         <h3 className="h3HomeBlog">{blog?.blogTitle}</h3>
                                         <p className="pHomeBlog">{blog?.text}</p>
-                                        <Button variant="outlined">READ MORE</Button>
+                                        {/* <Button variant="outlined">READ MORE</Button> */}
                                     </Box>
                                 </Grid>
                                 <Grid item xs={12} sm={12} >

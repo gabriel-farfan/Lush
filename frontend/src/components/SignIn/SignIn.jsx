@@ -95,7 +95,7 @@ function SignInSide(props) {
               <Grid container>
 
                 <Grid item>
-                  <LinkRouter className="" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
+                  <LinkRouter className="linkEditSignIn" to="/SignUp" >Don't have an account? Sign Up</LinkRouter>
                   {/* <Link href="#" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link> */}

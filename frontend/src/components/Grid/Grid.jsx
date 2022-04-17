@@ -7,7 +7,7 @@ import { Typography } from '@mui/material';
 export default function StandardImageList() {
     return (
         <>
-            <Typography variant="h2" sx={{ padding: '10px', marginTop: '25px' }}>Design by nature</Typography>
+            <Typography variant="h4" sx={{ padding: '10px', marginTop: '25px' }}>Design by nature</Typography>
             <div className="container">
                 <ImageList sx={{
                     width: 1200,

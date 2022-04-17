@@ -8,6 +8,7 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux';
 import plantActions from '../../redux/actions/plantActions.js'
 import cartActions from '../../redux/actions/cartActions.js'
+import { Link as LinkRouter } from 'react-router-dom'
 
 function DetailsPlant(props) {
 
@@ -40,18 +41,24 @@ function DetailsPlant(props) {
                             <p className="pDetails">{plant.description}
                             </p>
 
-                            <p className="pDetails">Price: {plant.price}</p>
 
-                            <p className="pDetails"> <span className="black"> Care: </span> <br/>Light: {plant.light}<br/> Water: {plant.waterRatio} </p>
+                            {/* <p className="pDetails"> <span className="black"> Care: </span> <br/>Light: {plant.light}<br/> Water: {plant.waterRatio} </p> */}
 
                             <p className="pDetails">Sad Signs: {plant.sadSigns}</p>
 
                             
+                            <p className="pDetails">Price: $  {plant.price.toFixed(2)}</p>
 
-                            <p className="pDetails">Room: {plant.room}</p>
+                            {/* <p className="pDetails">Room: {plant.room}</p> */}
 
-                            <p className="pDetails">Type:{plant.type}</p>
+                            {/* <p className="pDetails">Type:{plant.type}</p> */}
 
+                        <Button
+                        variant="outlined"
+                        color="primary"
+                        >
+                        <LinkRouter className="cartComponentBtn" to="/Shop" >Keep Shopping</LinkRouter>
+                        </Button>
 
 
                             <Button onClick={() => addToCart(plant)} variant="contained">ADD TO CART</Button>

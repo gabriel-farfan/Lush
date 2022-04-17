@@ -14,9 +14,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import HomeIcon from '@mui/icons-material/Home';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ArticleIcon from '@mui/icons-material/Article';
+import LoginIcon from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Footer() {
     return (
@@ -28,8 +30,13 @@ function Footer() {
                       <Grid item xs={12} sm={3}>
                           <Box className="tittle" borderBottom="1">Quick Links</Box>
                           <Box className="quicklinks">
-                              {/* <LinkRouter className=" socialbrands" to="/Home" ><HomeIcon/>  Home</LinkRouter>
-                              <LinkRouter className="socialbrands" to="/Cities" > <LocalAirportIcon/> Shop</LinkRouter> */}
+                              <LinkRouter className=" socialbrands" to="/Home" ><HomeIcon className="iconIgPrueba"/>  Home</LinkRouter>
+                              <LinkRouter className="socialbrands" to="/Shop" > <ShoppingCartIcon className="iconIgPrueba"/> Shop</LinkRouter>
+                              <LinkRouter className="socialbrands" to="/Blog" > <ArticleIcon className="iconIgPrueba"/> Blog</LinkRouter>
+                              <LinkRouter className="socialbrands" to="/Cart" > <ShoppingCartIcon className="iconIgPrueba"/> Cart</LinkRouter>
+                              <LinkRouter className="socialbrands" to="/SignIn" > <LoginIcon className="iconIgPrueba"/> Sign In</LinkRouter>
+                              <LinkRouter className="socialbrands" to="/SignUp" > <AccountCircleIcon className="iconIgPrueba"/> Sign Up</LinkRouter>
+
                           </Box>
                           
                           </Grid>
@@ -57,9 +64,9 @@ function Footer() {
                           <Box className="quicklinks">
                           <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Agustín Montoya</a>
                           <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Gabriel Farfan</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Chantal Pilia</a>
+                          <a className="socialbrands" href="https://www.linkedin.com/in/chantal-pilia-983387237/"><LinkedInIcon className="iconIgPrueba"/>  Chantal Pilia</a>
                           <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Hugo Onofri</a>
-                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Agustín Montoya</a>
+                          <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Emanuel Villagra</a>
                           <a className="socialbrands" href="linkedin.com/in/sergio-robledo-9b1a33187"><LinkedInIcon className="iconIgPrueba"/>  Sergio Robledo</a>
                           
                           </Box>
