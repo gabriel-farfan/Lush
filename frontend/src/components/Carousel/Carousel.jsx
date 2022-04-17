@@ -9,12 +9,31 @@ import "./carousel.css";
 
 // import './homeCardPlant.css'
 import Button from '@mui/material/Button';
-import {Link as LinkRouter} from "react-router-dom"
+import { Link as LinkRouter } from "react-router-dom"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Swal from 'sweetalert2'
 
 
 
 function CarouselComponent(props) {
+  const alertsToasts = (icon, message) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: `${icon}`,
+      title: `${message}`
+    })
+  }
   const { allPlants, loaded } = props;
   const { fetchPlants, addToCart } = props;
 
@@ -24,7 +43,7 @@ function CarouselComponent(props) {
 
   const data = allPlants;
 
-const dataClassLowCare = data.filter(item => item.care === "Low Care")
+  const dataClassLowCare = data.filter(item => item.care === "Low Care")
 
   const responsive = {
     superLargeDesktop: {
@@ -47,7 +66,7 @@ const dataClassLowCare = data.filter(item => item.care === "Low Care")
 
   return (
     <div className="carouselWrapper">
-    <h2>If you are a serial plant killer, these are for you!</h2>
+      <h2>If you are a serial plant killer, these are for you!</h2>
       <Carousel
         swipeable={true}
         draggable={true}
@@ -64,23 +83,23 @@ const dataClassLowCare = data.filter(item => item.care === "Low Care")
         itemClass="carousel-item-padding-40-px"
       >
 
-        
+
         {dataClassLowCare.map((item) => {
           return (
             <div className="cardWrapperCarousel">
-              
-                <img className="imgCard" src={process.env.PUBLIC_URL+ `/img/plants/${item.images}`} alt="" />
-                <div className="cardTextContent">
-                    <h3>{item.name}</h3>
-                    <p>$ {item.price}</p>
-                    <Button size="small" variant="outlined">
-                    <LinkRouter className="linkCard" to={`Details/${item._id}`}>DETAILS</LinkRouter>
-                    </Button>
-                    <Button size="small" onClick={() => addToCart(item)} variant="contained"><AddShoppingCartIcon/></Button>
-                </div>
+
+              <img className="imgCard" src={process.env.PUBLIC_URL + `/img/plants/${item.images}`} alt="" />
+              <div className="cardTextContent">
+                <h3>{item.name}</h3>
+                <p>$ {item.price}</p>
+                <Button size="small" variant="outlined">
+                  <LinkRouter className="linkCard" to={`Details/${item._id}`}>DETAILS</LinkRouter>
+                </Button>
+                <Button size="small" onClick={() => { addToCart(item); alertsToasts('success', 'you added a plant') }} variant="contained"><AddShoppingCartIcon /></Button>
+              </div>
             </div>
-            )
-          
+          )
+
         })}
       </Carousel>
     </div>

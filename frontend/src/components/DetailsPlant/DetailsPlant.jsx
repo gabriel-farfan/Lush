@@ -9,8 +9,28 @@ import { connect } from 'react-redux';
 import plantActions from '../../redux/actions/plantActions.js'
 import cartActions from '../../redux/actions/cartActions.js'
 import { Link as LinkRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function DetailsPlant(props) {
+
+    const alertsToasts = (icon, message) => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: `${icon}`,
+            title: `${message}`
+        })
+    }
 
     const { id } = useParams()
 
@@ -55,7 +75,7 @@ function DetailsPlant(props) {
                                 </Button>
 
 
-                                <Button onClick={() => addToCart(plant)} variant="contained">ADD TO CART</Button>
+                                <Button onClick={() => { addToCart(plant); alertsToasts('success', 'you added a plant ') }} variant="contained">ADD TO CART</Button>
                             </Box>
                         </Grid>
                         {/*     <Grid

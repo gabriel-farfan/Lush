@@ -272,7 +272,6 @@ function ShopComponent(props) {
         </AccordionDetails>
       </Accordion>
       <div className="wrapperMediumSize">
-        <p>{plants.length} plants found</p>
         {plants.length === 0 ? (<h1>No plants found</h1>) : plants.map((item) => {
           return (
             <div className="cardWrapper">
