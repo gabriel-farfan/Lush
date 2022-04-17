@@ -5,6 +5,7 @@ import './cartComponent.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import { Link as LinkRouter } from 'react-router-dom'
+import PayPal from '../Paypal/Paypal'
 
 function CartComponent() {
 
@@ -86,6 +87,7 @@ function CartComponent() {
                 Total: {total}
               </p>
             
+            <PayPal/>
       
       </div>
   )
