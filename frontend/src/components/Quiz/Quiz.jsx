@@ -122,7 +122,7 @@ function Quiz(props) {
                         </>
                     ) : (
                         <>
-                            <Link onClick={finalizeQuiz} to="/Shop">That's the perfect potted pal for your home...</Link>
+                            <Link onClick={finalizeQuiz} to="/Shop">Click here to see the perfect potted pal for your home...</Link>
                         </>
                     )
                 }
